@@ -1,4 +1,4 @@
-# MuseMeWebsite
+# MusMeWebsite
 
 Front-End:
 Jimmy Rosser
