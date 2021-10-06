@@ -1,0 +1,15 @@
+import React from 'react';
+
+const getUserByUserID = "http://localhost:9000/testConnection";
+
+class Main extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            error: null.
+            isLoaded: false,
+            csrfToken: null,
+            currentUserID: -1
+        }
+    }
+}
