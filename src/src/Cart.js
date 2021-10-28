@@ -6,7 +6,6 @@ function Cart() {
     <div class = "is-three-quarters">
         <h1 class = "title is-1">Cart</h1>
     </div>
-
     
   );
 }
