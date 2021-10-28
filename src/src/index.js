@@ -17,11 +17,15 @@ import Team from './Team';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
+
 ReactDOM.render(
 
   <BrowserRouter>
     {/* Header will always be present. <Switch> section changes out content based on the URL*/}
-    <Header />
+
+      <Header />
+
+    <div class = "content">
     <Switch>
         {/* 
         "Route" items change based on the url. Ex: if you are on /about, the page loads the About component in About.js
@@ -37,6 +41,7 @@ ReactDOM.render(
       <Route exact path = "/cart" component = {Cart}/>
     {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
+    </div>
     <Footer />
   </BrowserRouter>,
 
