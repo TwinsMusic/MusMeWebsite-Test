@@ -1,0 +1,11 @@
+@charset "utf-8";
+
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+@import "../node_modules/bulma/sass/utilities/functions";
+//set custom CSS variables here
+
+$is-success: #ff0000;
+
+
+// importing the rest of bulma
+@import "../node_modules/bulma/bulma.sass";
