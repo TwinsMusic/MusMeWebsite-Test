@@ -1,9 +1,9 @@
 import React, {Fragment} from "react";
-
-import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Link} from "react-router-dom";
 
 function Header() {
+
+  
   return (
     <nav class = "navbar is-fixed-top" role = "navigation">
       {/* 
@@ -74,6 +74,8 @@ function Header() {
         </div>
 
     </nav> 
+
+
     
   );
 }

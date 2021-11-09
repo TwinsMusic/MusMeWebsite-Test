@@ -1,11 +1,9 @@
-import React, {Fragment} from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+
+import Title from "./Title.js";
 
 function Artists() {
   return (
-    <div class = "is-three-quarters">
-        <h1 class = "title is-1">Artists</h1>
-    </div>
+    Title("Artists","Our Featured Musicians")
 
     
   );
