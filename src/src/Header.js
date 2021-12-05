@@ -1,18 +1,16 @@
-import React, {Fragment} from "react";
-
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import React from "react";
 import {Link} from "react-router-dom";
 
 function Header() {
   return (
-    <nav class = "navbar" role = "navigation">
+    <nav id="navigation-bar" class="navbar is-transparent is-fixed-top" role = "navigation">
       {/* 
           For reference on how navbar works see Bulma docs
       */}
-        <div class = "navbar-brand">
-          <a class = "navbar-item">
+        <div id="navbar-start" class = "navbar-brand">
+          <a href="/" class = "navbar-start">
             <Link to = "/">
-              <img src = "logo.png"></img>
+              <img src = "logo.png" alt=""></img>
             </Link>
           </a>
         </div>
@@ -20,61 +18,60 @@ function Header() {
           <div class = "navbar-start">
             <div class = "navbar-item has-dropdown is-hoverable">
               <div class = "navbar-link">
-                <Link to = "/about">
+                <Link class="navbar-item-color" to = "/about">
                 About
                 </Link>
               </div>
-              <div class = "navbar-dropdown">
-                <a class = "navbar-item">
-                  <Link to = "/team">
+              <div class = "navbar-dropdown is-boxed">
+                  <Link class = "navbar-item navbar-item-color-dropdown" to = "/team" onClick={(event) => { event.target.blur(); }}>
                     Meet our Team
                   </Link>
-                </a>
-                <a class = "navbar-item">
-                  <Link to = "/artists">
-                    Featured Artists
+                  <Link class = "navbar-item navbar-item-color-dropdown" to = "/artists" onClick={(event) => { event.target.blur(); }}>
+                  Featured Artists
                   </Link>
-                </a>
+                  <Link class = "navbar-item navbar-item-color-dropdown" to = "/contact" onClick={(event) => { event.target.blur(); }}>
+                  Customize Your Music
+                  </Link>
               </div>
             </div>
             <div class = "navbar-item">
-              <Link to = "/subscribe">
+              <Link class="navbar-item-color" to = "/subscribe">
                 Subscribe
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link to = "/browse">
+              <Link class="navbar-item-color" to = "/browse">
                 Browse Music
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link to = "/artist-submit">
+              <Link class="navbar-item-color" to = "/artist-submit">
                 Submit Music
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link to = "/faq">
+              <Link class="navbar-item-color" to = "/faq">
                 FAQs
               </Link>
             </div>
+            <div class = "navbar-item">
+              <Link class="navbar-item-color" to = "/terms">
+                Terms of Use
+              </Link>
+            </div>
           </div>
-          <div class = "navbar-end">
-          <div class = "navbar-item">
+          <div id="navbar-end" class = "navbar-end">
+          <div class = "navbar-item navbar-item-color">
               123-456-7890
               </div>
-            
-              <Link to = "/cart">
-              <button class = "button">
+              <Link class="navbar-item-color" to = "/cart">
+              <button id="button-style" class = "button is-link is-hovered">
                 Cart
               </button>
               </Link>
-           
-
           </div>
         </div>
-
-    </nav> 
-    
+    </nav>  
   );
 }
 

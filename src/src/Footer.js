@@ -1,5 +1,4 @@
-import React, {Fragment} from "react";
-import {BrowserRouter as Router, Route} from "react-router-dom";
+import React from "react";
 import {Link} from "react-router-dom";
 
 function Footer() {
@@ -7,78 +6,80 @@ function Footer() {
     <div class = "footer">
       <div class="columns">
         <div class="column">
-          <figure class="image is-128x128">
-            <img src = "logo.png"></img>
+          <figure id="footer-logo" class="image is-128x128">
+            <Link to="/"><img src = "logo.png" alt=""></img></Link>
           </figure>
-        </div>
-        
+        </div>    
         <div class="column">
           <div class="columns">
             <div class="column">
-              <Link to = "/about">
-                ABOUT
+              <Link class="footer-links" to = "/about">
+                <p>ABOUT</p>
               </Link>
               <p>SERVICES</p>
-              <p>BROWSE</p>
+              <Link class="footer-links" to = "/browse">
+                <p>BROWSE</p>
+              </Link>
             </div>
             <div class="column">
-              <Link to = "/artist-submit">
+              <Link class="footer-links" to = "/artist-submit">
                 <p>SUBMIT MUSIC</p>
               </Link>
-              <Link to = "/faq">
-                FAQ/SUPPORT
+              <Link class="footer-links" to = "/faq">
+                <p>FAQ/SUPPORT</p>
               </Link>
+              <Link class="footer-links" to = "/terms">
               <p>TERMS OF USE</p>
+              </Link>
             </div>
           </div>
-
-          <button class="button">SUBSCRIBE</button>
-
-          <p>+1 (646) 413-9374</p>
-          <p>twinsmusicny@yahoo.com</p>
-
-          <div class="columns">
-            <div class="column is-one-fifth">
-              <a href="https://www.instagram.com/twinsmusicny/">
-                <figure id="social" class="image is-32x32">
-                  <img src = "IG-Logo.png"></img>
+          <Link id="sub-button" to = "/subscribe">
+          <p><button id="button-style" class="button is-rounded is-link is-hovered">SUBSCRIBE</button></p>
+          </Link>
+          <p id="footer-info">
+          +1 (646) 413-9374<br></br>
+          <a class="footer-custom-link" href="mailto:twinsmusicny@yahoo.com">twinsmusicny@yahoo.com</a>
+          </p>
+          <div class="column">
+          <div class="content has-text-centered">
+            <nav class="level">
+            <div class="level-item">
+            <a href="https://www.instagram.com/twinsmusicny/">
+                <figure class="image is-32x32">
+                  <img src = "IG-Logo.png" alt=""></img>
                 </figure>
               </a>
-            </div>
-            <div class="column is-one-fifth">
+              </div>
+              <div class="level-item">
               <a href="https://www.facebook.com/twinsmusicny">
-                <figure id="social" class="image is-32x32">
-                  <img src = "FB-Logo.png"></img>
+                <figure class="image is-32x32">
+                  <img src = "FB-Logo.png" alt=""></img>
                 </figure>
               </a>
-            </div>
-            <div class="column is-one-fifth">
+              </div>
+              <div class="level-item">
               <a href="https://www.youtube.com/c/TwinsMusicEnterprises">
-                <figure id="social" class="image is-32x32">
-                  <img src = "YT-Logo.png"></img>
+                <figure class="image is-32x32">
+                  <img src = "YT-Logo.png" alt=""></img>
                 </figure>
               </a>
-            </div>
-            <div class="column is-one-fifth">
+              </div>
+              <div class="level-item">
               <a href="https://www.linkedin.com/company/twinsmusicny/">
-                <figure id="social" class="image is-32x32">
-                  <img src = "LI-Logo.png"></img>
+                <figure class="image is-32x32">
+                  <img src = "LI-Logo.png" alt=""></img>
                 </figure>
               </a>
-            </div>
+              </div>
+              </nav>
           </div>
-
-        </div>
-
+          </div>
+          </div>
         <div class="column">
-          <b>MusMe</b>
+        <Link class="footer-custom-link" to = "/"><p id="footer-musme">MusMe</p></Link>
         </div>
-
+        </div>
       </div>
-      
-    </div>
-    
-    
   );
 }
 
