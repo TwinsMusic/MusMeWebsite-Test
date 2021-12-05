@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 
 function Header() {
   return (
-    <nav class = "navbar is-fixed-top" role = "navigation">
+    <nav class = "navbar" role = "navigation">
       {/* 
           For reference on how navbar works see Bulma docs
       */}

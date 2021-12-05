@@ -7689,7 +7689,36 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
         padding: 18rem 6rem; } }
 
 .footer {
-  background-color: #fafafa;
-  padding: 3rem 1.5rem 6rem; }
+  background-color: #13173a;
+  color: white;
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+  padding-top: 5%; 
+}
+
+#social{
+  margin-left:100%
+}
+
+details {
+    border-radius: 4px;
+    padding: .5em .5em 0;
+}
+
+summary {
+    font-weight: bold;
+    margin: -.5em -.5em 0;
+    padding: .5em;
+}
+
+details[open] {
+    padding: .5em;
+}
+
+details[open] summary {
+    margin-bottom: .5em;
+}
+
 
 /*# sourceMappingURL=mystyles.css.map */
