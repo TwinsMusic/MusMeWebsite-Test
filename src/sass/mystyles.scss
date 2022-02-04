@@ -3,8 +3,21 @@
 @import "../node_modules/bulma/sass/utilities/initial-variables";
 @import "../node_modules/bulma/sass/utilities/functions";
 //set custom CSS variables here
+$primary: #01BBC2;
+$navbar-background-color: #12153E;
+$link: #E83DC4;
+$navbar-item-color: #ffffff;
+$navbar-padding-vertical: 0.75rem;
+$navbar-dropdown-arrow: #ffffff;
+$navbar-dropdown-background-color: $navbar-background-color;
+$navbar-dropdown-item-hover-color: $link;
+$navbar-item-hover-background-color: $primary;
+$navbar-tab-hover-background-color: $primary;
+$navbar-dropdown-item-hover-background-color: $primary;
+$scheme-invert: #12153E;
 
-$is-success: #ff0000;
+
+
 
 
 // importing the rest of bulma

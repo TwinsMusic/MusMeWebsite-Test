@@ -18,13 +18,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 
 ReactDOM.render(
+<div>
+
 
   <BrowserRouter>
     {/* Header will always be present. <Switch> section changes out content based on the URL*/}
 
       <Header />
-      <div id = "bigTitle">
-      </div>
 
     <div class = "content">
     
@@ -46,7 +46,10 @@ ReactDOM.render(
     </div>
     
     <Footer />
-  </BrowserRouter>,
+    
+  </BrowserRouter>
+  </div>,
+
 
   document.getElementById('root')
 );

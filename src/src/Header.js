@@ -5,55 +5,53 @@ function Header() {
 
   
   return (
-    <nav class = "navbar is-fixed-top" role = "navigation">
+    <nav class = "navbar is-spaced" role = "navigation">
       {/* 
           For reference on how navbar works see Bulma docs
       */}
         <div class = "navbar-brand">
-          <a class = "navbar-item">
-            <Link to = "/">
+            <Link to = "/" class = "router-link">
               <img src = "logo.png"></img>
             </Link>
-          </a>
         </div>
-        <div class = "navbar-menu">
+        <div class = "navbar-menu" >
           <div class = "navbar-start">
             <div class = "navbar-item has-dropdown is-hoverable">
               <div class = "navbar-link">
-                <Link to = "/about">
+                <Link to = "/about" class = "router-link">
                 About
                 </Link>
               </div>
               <div class = "navbar-dropdown">
                 <a class = "navbar-item">
-                  <Link to = "/team">
+                  <Link to = "/team"style = {{color: "white"}}>
                     Meet our Team
                   </Link>
                 </a>
                 <a class = "navbar-item">
-                  <Link to = "/artists">
+                  <Link to = "/artists" style = {{color: "white"}}>
                     Featured Artists
                   </Link>
                 </a>
               </div>
             </div>
             <div class = "navbar-item">
-              <Link to = "/subscribe">
+              <Link to = "/subscribe"class = "router-link">
                 Subscribe
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link to = "/browse">
+              <Link to = "/browse"class = "router-link">
                 Browse Music
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link to = "/artist-submit">
+              <Link to = "/artist-submit"class = "router-link">
                 Submit Music
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link to = "/faq">
+              <Link to = "/faq"class = "router-link">
                 FAQs
               </Link>
             </div>
