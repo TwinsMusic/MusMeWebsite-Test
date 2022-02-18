@@ -1,77 +1,80 @@
-import React from "react";
+import React, {Fragment} from "react";
 import {Link} from "react-router-dom";
 
 function Header() {
+
+  
   return (
-    <nav id="navigation-bar" class="navbar is-transparent is-fixed-top" role = "navigation">
+    <nav class = "navbar is-spaced" role = "navigation">
       {/* 
           For reference on how navbar works see Bulma docs
       */}
-        <div id="navbar-start" class = "navbar-brand">
-          <a href="/" class = "navbar-start">
-            <Link to = "/">
-              <img src = "logo.png" alt=""></img>
+        <div class = "navbar-brand">
+            <Link to = "/" class = "router-link">
+              <img src = "logo.png"></img>
             </Link>
-          </a>
         </div>
-        <div class = "navbar-menu">
+        <div class = "navbar-menu" >
           <div class = "navbar-start">
             <div class = "navbar-item has-dropdown is-hoverable">
               <div class = "navbar-link">
-                <Link class="navbar-item-color" to = "/about">
+                <Link to = "/about" class = "router-link">
                 About
                 </Link>
               </div>
-              <div class = "navbar-dropdown is-boxed">
-                  <Link class = "navbar-item navbar-item-color-dropdown" to = "/team" onClick={(event) => { event.target.blur(); }}>
+              <div class = "navbar-dropdown">
+                <a class = "navbar-item">
+                  <Link to = "/team"style = {{color: "white"}}>
                     Meet our Team
                   </Link>
-                  <Link class = "navbar-item navbar-item-color-dropdown" to = "/artists" onClick={(event) => { event.target.blur(); }}>
-                  Featured Artists
+                </a>
+                <a class = "navbar-item">
+                  <Link to = "/artists" style = {{color: "white"}}>
+                    Featured Artists
                   </Link>
-                  <Link class = "navbar-item navbar-item-color-dropdown" to = "/contact" onClick={(event) => { event.target.blur(); }}>
-                  Customize Your Music
-                  </Link>
+                </a>
               </div>
             </div>
             <div class = "navbar-item">
-              <Link class="navbar-item-color" to = "/subscribe">
+              <Link to = "/subscribe"class = "router-link">
                 Subscribe
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link class="navbar-item-color" to = "/browse">
+              <Link to = "/browse"class = "router-link">
                 Browse Music
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link class="navbar-item-color" to = "/artist-submit">
+              <Link to = "/artist-submit"class = "router-link">
                 Submit Music
               </Link>
             </div>
             <div class = "navbar-item">
-              <Link class="navbar-item-color" to = "/faq">
+              <Link to = "/faq"class = "router-link">
                 FAQs
               </Link>
             </div>
-            <div class = "navbar-item">
-              <Link class="navbar-item-color" to = "/terms">
-                Terms of Use
-              </Link>
-            </div>
           </div>
-          <div id="navbar-end" class = "navbar-end">
-          <div class = "navbar-item navbar-item-color">
+          <div class = "navbar-end">
+          <div class = "navbar-item">
               123-456-7890
               </div>
-              <Link class="navbar-item-color" to = "/cart">
-              <button id="button-style" class = "button is-link is-hovered">
+            
+              <Link to = "/cart">
+              <button class = "button">
                 Cart
               </button>
               </Link>
+           
+
           </div>
         </div>
-    </nav>  
+
+    </nav> 
+
+
+    
   );
 }
 
