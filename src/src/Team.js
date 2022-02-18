@@ -1,11 +1,12 @@
 import React from "react";
 import {Card} from 'react-bootstrap';
+import Title from "./Title.js";
+import Content from "./Content";
 
-function Team() {
-  return (
-    <section class="section">
-    <div class="container">
-        <h1 class = "has-text-centered">Meet Our Team</h1>
+const title = Title("Team","Meet our team");
+
+const content = Content(
+  <div class="container">
     <Card>
     <img className="team-pic" src="team/team-ceo.jpg" alt=""></img>
       <Card.Body>
@@ -51,8 +52,14 @@ function Team() {
       </Card.Body>
     </Card>
     </div>
-    </section>
-    
+);
+
+function Team() {
+  return (
+    <div> 
+        {title}
+        {content}
+      </div>
   );
 }
 

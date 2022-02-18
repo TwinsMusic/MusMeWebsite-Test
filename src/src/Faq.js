@@ -1,11 +1,12 @@
 import React from "react";
 import {Accordion} from 'react-bootstrap';
+import Title from "./Title.js";
+import Content from "./Content";
 
-function Faq() {
-  return (
-    <section class="section">
-      <div class="container">
-      <h1 class="has-text-centered">FAQs</h1>
+const title = Title("FAQs","Frequently asked questions");
+
+const content = Content(
+<div class="container">
 <Accordion>
   <Accordion.Item eventKey="0">
     <Accordion.Header><b>What Do You Do if You Receive This Claim?</b></Accordion.Header>
@@ -33,16 +34,6 @@ function Faq() {
     </Accordion.Body>
   </Accordion.Item>
   <Accordion.Item eventKey="3">
-    <Accordion.Header><b>What is a Royalty?</b></Accordion.Header>
-    <Accordion.Body>
-      <p>A royalty is a monetary request payment made from the copyright holder each time a musical work is used. A royalty is negotiated by the copyright holder, however the ownership of the master recording of a musical work always stays in the hands of the artist or publishing company. In all cases, individuals are able to use the musical work they paid for without changing or modifying the works.</p>
-​
-      <p>Once again, royalty free means that the licensee does not need to pay or negotiate further payments to use the work, but this does not mean that they own the copyright to the work.</p>
-      <p><img src = "Copyright-img.png"></img></p>
-      <p>In order to obtain a royalty free license, they need to subscribe to a music library such as MusMe. While royalty free music is meant to allow content creators to be able to monetize their work on digital platforms like YouTube, they CANNOT claim ownership of the musical work or resell, trade, or exploit for profit to other licensees or companies such as ad agencies for commercial purposes. If the licensee would like to use their work for that purpose, they can obtain from us a different type of sync license agreement.</p>
-    </Accordion.Body>
-</Accordion.Item>
-  <Accordion.Item eventKey="4">
     <Accordion.Header><b>7 Steps to Set Up Your MusMe Ringtones</b></Accordion.Header>
     <Accordion.Body>
       <p><b>Step 1:</b><br></br>
@@ -74,7 +65,14 @@ function Faq() {
   </Accordion.Item>
 </Accordion>
 </div>
-</section>
+);
+
+function Faq() {
+  return (
+      <div> 
+          {title}
+          {content}
+        </div>
   );
 }
 
