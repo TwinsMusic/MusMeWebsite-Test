@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -13,6 +14,8 @@ import Faq from './Faq';
 import Submit from './Submit';
 import Subscribe from './Subscribe';
 import Team from './Team';
+import Terms from './Terms';
+import Contact from './Contact';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -41,6 +44,8 @@ ReactDOM.render(
       <Route exact path = "/artist-submit" component = {Submit}/>
       <Route exact path = "/faq" component = {Faq}/>
       <Route exact path = "/cart" component = {Cart}/>
+      <Route exact path = "/terms" component = {Terms}/>
+      <Route exact path = "/contact" component = {Contact}/>
     {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
     </div>
