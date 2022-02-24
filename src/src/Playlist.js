@@ -54,7 +54,7 @@ class Playlist extends React.Component{
     //renders containers for waveforms
     for(let i = 0; i < length; i++){
       divs[i] = 
-      <div class = {"wavesurfer"+i+" box "}>
+      <div class = {"wavesurfer"+i+" block"}>
         <div class = "block">{this.state.songs[i]}</div>
         <div id = {"wavesurfer"+i+"wave"} >
         </div>

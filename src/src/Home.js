@@ -73,7 +73,7 @@ class Home extends React.Component {
         <div class = "title" style = {{textAlign: "center"}}>
           Featured Sounds
         </div>
-        <div>
+        <div class = " has-text-light">
           <Playlist songarr = {this.state.songarr}/>
         </div>
   
@@ -86,7 +86,7 @@ class Home extends React.Component {
     );
   
     return (
-      <div> 
+      <div class = "has-background-dark"> 
         {title}
         {content}
         {
