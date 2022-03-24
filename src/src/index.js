@@ -14,6 +14,7 @@ import Faq from './Faq';
 import Submit from './Submit';
 import Subscribe from './Subscribe';
 import Team from './Team';
+import Test from './Test';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -42,6 +43,7 @@ ReactDOM.render(
       <Route exact path = "/artist-submit" component = {Submit}/>
       <Route exact path = "/faq" component = {Faq}/>
       <Route exact path = "/cart" component = {Cart}/>
+      <Route exact path = "/test" component = {Test}/>
     {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
     </div>
