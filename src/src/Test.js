@@ -9,61 +9,100 @@ class Test extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            test: "hello"
+            id: "",
+            title: "",
+            artist: "",
+            year: "",
+            genre: "",
+            tags: [],
+            url: "",
+            test: ""
+
         };
     }
-    async componentDidMount() {
-        const response = await fetch(path + "api/tracks");
-        console.log(response);
-        const body = await response.json();
-        console.log(body);
-        this.setState({test: body});
-        /*
-        fetch("http://localhost:8080/api/tracks/1", {mode: 'no-cors'})
-            .then(res => res.json())
-            .then(data => this.setState({ test: data }))
-        */
-        /*
-        //KINDA WORKS!
-        fetch("http://localhost:8080/api/tracks", {mode: 'no-cors'})
-            //.then(response => response.json())
-            .then(res => {
-                console.log(res);
-                return JSON.stringify(res);
-            })
-            .then(data => {
-                console.log("Data: " + (data));
-                this.setState({test: data});
-            })
-            
-            */
-           /*
-        client({method: 'GET', path: '/api/tracks/1'}).then(response => {
-            this.setState({test: response.entity._embedded.tracks});
-        });*/
+    componentDidMount() {
         
-        /*
-        fetch("http://localhost:8080/api/tracks", {mode: 'no-cors'})
-        .then(response => {
-            const parsedResponse = response.json();
-            console.log("parsed response: " + parsedResponse)
-            this.setState({test: parsedResponse.entity._embedded.tracks});
-        });
-        */
-
-        /*
+        fetch(path + "api/tracks/1")
+            .then(res => res.json())
             .then(data => {
-                console.log("data: ", data.entity._embedded.tracks);
-                this.setState({test: data.entity._embedded.tracks});
-            });
+                console.log(data);
+                this.setState({ id: data.id });
+                this.setState({ title: data.title });
+                this.setState({ artist: data.artist });
+                this.setState({ year: data.year });
+                this.setState({ genre: data.genre });
+                this.setState({ tags: data.tags });
+                this.setState({ url: data.url });
+            })
+
+            var request = require('request');
+            var options = {
+            'method': 'POST',
+            'url': path + 'api/tracks/save',
+            'headers': {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "title": "Nightcall",
+                "artist": "Kavensky",
+                "year": "2010",
+                "genre": "Outrun",
+                "url": "https://youtu.be/MV_3Dpw-BRY",
+                "tags": "outrun, vaporwave, retro"
+            })
+
+            };
+            request(options, function (error, response) {
+                if (error) throw new Error(error);
+                console.log(response.body);
+            })
+
+            fetch(path + "api/tracks/2")
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                this.setState({ id: data.id });
+                this.setState({ title: data.title });
+                this.setState({ artist: data.artist });
+                this.setState({ year: data.year });
+                this.setState({ genre: data.genre });
+                this.setState({ tags: data.tags });
+                this.setState({ url: data.url });
+            })
+        /*
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({id: 2, title: "test1", artist: "test2", year: "test3", genre: "test4", tags: ["test5a", "test5b"], url: "test6"})
+        };
+        fetch(path + "api/tracks/1", requestOptions)
+            .then(response => response.json())
+            .then(data => this.setState({ bool: data.id }));
+        fetch(path + "api/tracks/2")
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            this.setState({ id: data.id });
+            this.setState({ title: data.title });
+            this.setState({ artist: data.artist });
+            this.setState({ year: data.year });
+            this.setState({ genre: data.genre });
+            this.setState({ tags: data.tags });
+            this.setState({ url: data.url });
+            })
             */
-            
     }
     render() {
         return (
             <div>
                 <p>TESTING</p>
-                <h1>{this.state.test}</h1>
+                <h1>Id: {this.state.id}</h1>
+                <h1>Artist: {this.state.artist}</h1>
+                <h1>Title: {this.state.title}</h1>
+                <h1>Year: {this.state.year}</h1>
+                <h1>Genre: {this.state.genre}</h1>
+                <h1>Tags: {this.state.tags}</h1>
+                <h1>URL: {this.state.url}</h1>
                 <p>TESTING</p>
             </div>
         );
