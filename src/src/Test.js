@@ -1,24 +1,40 @@
 import React from "react";
 import { render } from "react-dom";
 import Stripe from "react-stripe-checkout";
-import axios from "axios";
 
 const path = "http://localhost:8080/";
 
 function Test() {
-    async function handleToken(token) {
-        console.log(token);
-        await axios.post(path + "api/payment/charge", "", {
-            headers: {
+    
+    //async function handleToken(token) {
+    //    console.log(token);
+    //    await axios.post(path + "api/payment/charge", "", {
+    //        headers: {
+    //            token: token.id,
+    //            amount: 500,
+    //        },
+    //    }).then(() => {
+    //        alert("Payment Success");
+    //    }).catch((error) => {
+    //        alert(error);
+    //    });
+    //}
+    
+   async function handleToken(token) {
+       fetch(path + "api/payment/charge", {
+           method: 'POST',
+           headers: {
                 token: token.id,
                 amount: 500,
-            },
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+           },
         }).then(() => {
             alert("Payment Success");
         }).catch((error) => {
             alert(error);
         });
-    }
+       }
     return (
         <div className="App">
             <Stripe
@@ -29,6 +45,7 @@ function Test() {
     );
 }
 export default Test;
+
 
 /*
 //Backend connection code, WORKS
