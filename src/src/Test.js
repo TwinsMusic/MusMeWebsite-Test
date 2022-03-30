@@ -1,10 +1,37 @@
 import React from "react";
 import { render } from "react-dom";
+import Stripe from "react-stripe-checkout";
+import axios from "axios";
 
 const path = "http://localhost:8080/";
 
-//const getUserByUserID = "http://localhost:9000/testConnection";
+function Test() {
+    async function handleToken(token) {
+        console.log(token);
+        await axios.post(path + "api/payment/charge", "", {
+            headers: {
+                token: token.id,
+                amount: 500,
+            },
+        }).then(() => {
+            alert("Payment Success");
+        }).catch((error) => {
+            alert(error);
+        });
+    }
+    return (
+        <div className="App">
+            <Stripe
+                stripeKey="pk_test_51JctpFAd92q79vbz4fYEbwO1BAxjogfYPP28hS7UENwH0cV8hPyqZcj3wRcuntCc9MoAoA1BkEIxp27LkSuzPIA400S2njXeaY"
+                token={handleToken}
+            />
+        </div>
+    );
+}
+export default Test;
 
+/*
+//Backend connection code, WORKS
 class Test extends React.Component {
     constructor(props) {
         super(props);
@@ -69,28 +96,6 @@ class Test extends React.Component {
                 this.setState({ tags: data.tags });
                 this.setState({ url: data.url });
             })
-        /*
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({id: 2, title: "test1", artist: "test2", year: "test3", genre: "test4", tags: ["test5a", "test5b"], url: "test6"})
-        };
-        fetch(path + "api/tracks/1", requestOptions)
-            .then(response => response.json())
-            .then(data => this.setState({ bool: data.id }));
-        fetch(path + "api/tracks/2")
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            this.setState({ id: data.id });
-            this.setState({ title: data.title });
-            this.setState({ artist: data.artist });
-            this.setState({ year: data.year });
-            this.setState({ genre: data.genre });
-            this.setState({ tags: data.tags });
-            this.setState({ url: data.url });
-            })
-            */
     }
     render() {
         return (
@@ -107,36 +112,8 @@ class Test extends React.Component {
             </div>
         );
     }
+    
 }
 
 export default Test;
-/*
-function Test() {
-    return(
-        <p>TESTING TESTING TESTING</p>
-    );
-}
-/*
-
-export default Test;
-
-/*
-class Main extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            error: null.
-            isLoaded: false,
-            csrfToken: null,
-            currentUserID: -1
-        }
-    }
-
-    render() {
-        return 
-        <div>
-            <h1>This works!</h1>
-        </div>
-    }
-}
 */
