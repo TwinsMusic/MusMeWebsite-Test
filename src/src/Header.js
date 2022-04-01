@@ -55,6 +55,11 @@ function Header() {
                 FAQs
               </Link>
             </div>
+            <div class = "navbar-item">
+              <Link to = "/terms"class = "router-link">
+                Terms of Use
+              </Link>
+            </div>
           </div>
           <div class = "navbar-end">
           <div class = "navbar-item">
