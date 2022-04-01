@@ -7,7 +7,7 @@ const title = Title("Team","Meet our team");
 
 const content = Content(
   <div class="container">
-    <Card>
+    <Card style={{backgroundColor:"#12153e"}}>
     <img className="team-pic" src="team/team-ceo.jpg" alt=""></img>
       <Card.Body>
       <Card.Title>Giuseppina Magri</Card.Title>
@@ -18,7 +18,7 @@ const content = Content(
       <a href="http://linkedin.com/in/giusy-magrì-5a83191a"><img src="Li-Logo-Team.png" alt=""></img></a>
       </Card.Body>
     </Card>
-    <Card>
+    <Card style={{backgroundColor:"#12153e"}}>
     <img className="team-pic" src="team/team-marketing.jpg" alt=""></img>
       <Card.Body>
       <Card.Title>Carter Brady</Card.Title>
@@ -29,7 +29,7 @@ const content = Content(
       <a href="https://www.linkedin.com/company/furman-university/"><img src="Li-Logo-Team.png" alt=""></img></a>
       </Card.Body>
     </Card>
-    <Card>
+    <Card style={{backgroundColor:"#12153e"}}>
     <img className="team-pic" src="team/team-sales-1.jpeg" alt=""></img>
       <Card.Body>
       <Card.Title>Saniya Joshi</Card.Title>
@@ -40,7 +40,7 @@ const content = Content(
       <a href="http://linkedin.com/in/saniya-joshi"><img src="Li-Logo-Team.png" alt=""></img></a>
       </Card.Body>
     </Card>
-    <Card>
+    <Card style={{backgroundColor:"#12153e"}}>
     <img className="team-pic" src="team/team-sales-2.jpeg" alt=""></img>
       <Card.Body>
       <Card.Title>Shelly Xu</Card.Title>
