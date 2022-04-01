@@ -6,8 +6,7 @@ const title = Title("Subscribe","Get access to the MusMe library");
 
 const content = Content(
   <section class="section">
-      <div class="container">
-          <h1 class = "has-text-centered">Subscribe</h1>
+      <div class="container" id = "subscribe-container" style = {{color: "white"}}>
           <h2 class="has-text-centered">Step 1: <span style={{color: "#9b51e0"}}>Purchase the Subscription</span></h2>
           <p class="has-text-centered">Purchase the MusMe annual subscription below. Read the <a class="custom-link" href="/terms">MusMe Annual Subscription Agreement and Terms of Use</a> before subscribing.</p>
           <h2 class="has-text-centered">Step 2: <span style={{color: "#0693e3"}}>Sign up on the MusMe App</span></h2>

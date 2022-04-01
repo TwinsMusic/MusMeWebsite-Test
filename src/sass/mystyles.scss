@@ -21,6 +21,15 @@ $text: $white;
 $text-strong: $text;
 $footer-background-color: $primary;
 
+#subscribe-container a{
+    color: $primary;
+    text-decoration: none;
+
+}
+#subscribe-container a:hover{
+    color: "white";
+
+}
 
 
 

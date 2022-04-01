@@ -1,4 +1,11 @@
 @charset "UTF-8";
+#subscribe-container a {
+  color: #01BBC2;
+  text-decoration: none; }
+
+#subscribe-container a:hover {
+  color: "white"; }
+
 /*! bulma.io v0.9.3 | MIT License | github.com/jgthms/bulma */
 /* Bulma Utilities */
 .button, .input, .textarea, .select select, .file-cta,

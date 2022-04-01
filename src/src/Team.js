@@ -7,8 +7,17 @@ const title = Title("Team","Meet our team");
 
 const content = Content(
   <div class="container">
-    <Card style={{backgroundColor:"#12153e"}}>
-    <img className="team-pic" src="images/team/team-ceo.jpg" alt=""></img>
+
+      
+    <div class = "columns">
+      <div class = "column is-one-quarter">
+        <img class="team-pic" src="images/team/team-ceo.jpg" alt="Giuseppina Magri"></img>
+        <img className="team-pic" src="images/team/team-marketing.jpg" alt="Carter Brady"></img>
+        <img className="team-pic" src="images/team/team-sales-1.jpeg" alt="Saniya Joshi"></img>
+        <img className="team-pic" src="images/team/team-sales-2.jpeg" alt="Shelly Xu"></img>
+      </div>
+      <div class = "column">
+      <Card style={{backgroundColor:"#12153e"}}>
       <Card.Body>
       <Card.Title>Giuseppina Magri</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Founder and CEO</Card.Subtitle>
@@ -19,7 +28,7 @@ const content = Content(
       </Card.Body>
     </Card>
     <Card style={{backgroundColor:"#12153e"}}>
-    <img className="team-pic" src="images/team/team-marketing.jpg" alt=""></img>
+
       <Card.Body>
       <Card.Title>Carter Brady</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Marketing Video, and Audio Production Associate</Card.Subtitle>
@@ -30,7 +39,7 @@ const content = Content(
       </Card.Body>
     </Card>
     <Card style={{backgroundColor:"#12153e"}}>
-    <img className="team-pic" src="images/team/team-sales-1.jpeg" alt=""></img>
+
       <Card.Body>
       <Card.Title>Saniya Joshi</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Sales & Marketing Consultant</Card.Subtitle>
@@ -41,7 +50,7 @@ const content = Content(
       </Card.Body>
     </Card>
     <Card style={{backgroundColor:"#12153e"}}>
-    <img className="team-pic" src="images/team/team-sales-2.jpeg" alt=""></img>
+
       <Card.Body>
       <Card.Title>Shelly Xu</Card.Title>
       <Card.Subtitle className="mb-2 text-muted">Sales & Marketing Consultant</Card.Subtitle>
@@ -51,6 +60,10 @@ const content = Content(
       <a href="http://linkedin.com/in/shelly-jiayi-xu-0b5227174"><img src="images/social/Li-Logo-Team.png" alt=""></img></a>
       </Card.Body>
     </Card>
+      </div>
+    </div>
+
+     
     </div>
 );
 
