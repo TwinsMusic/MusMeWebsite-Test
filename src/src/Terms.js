@@ -1,11 +1,12 @@
 import React from "react";
+import Title from "./Title.js";
+import Content from "./Content";
 
-function Terms() {
-  return (
+const title = Title("Terms of Use","Read before subscribing");
+
+const content = Content(
     <section class="section">
     <div class="container">
-        <h1 class = "has-text-centered">Terms Of Use</h1>
-        <br></br>
         <p class="subtitle is-5"><b>ANNUAL SUBSCRIPTION AGREEMENT</b></p>
         <p class="subtitle is-5">What You Get From Our MusMe Subscription<br></br>
         The moment you subscribe with TwinsMusic, you are agreeing with the following terms and conditions.
@@ -36,8 +37,15 @@ function Terms() {
         <p class="subtitle is-5">The viewing, printing or downloading of any content from the website can only be used for private use and not for commercial purposes (for purchased or free downloaded sounds, please see the terms of use above).</p>
    </div>
     </section>
-    
-  );
+);
+
+function Terms() {
+    return (
+        <div> 
+            {title}
+            {content}
+        </div>
+    );
 }
 
 export default Terms;
