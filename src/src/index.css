@@ -11,6 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navbar-item a{
+  text-decoration: none;
+}
 div.control-container span.amplitude-play-pause {
   width: 40px;
   height: 44px;

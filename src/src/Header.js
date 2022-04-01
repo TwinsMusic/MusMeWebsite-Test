@@ -62,7 +62,7 @@ function Header() {
               </div>
             
               <Link to = "/cart">
-              <button class = "button">
+              <button class = "button is-primary">
                 Cart
               </button>
               </Link>

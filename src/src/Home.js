@@ -54,14 +54,14 @@ class Home extends React.Component {
     const content = Content(
     <div class = "columns">
       
-      <div class = "column"style = {{paddingTop: 5, textAlign: "center"}} id = "homecontent">
+      <div class = "column"style = {{paddingTop: 5, textAlign: "center", color: "white"}} id = "homecontent">
           <div class = "block">
           <p>MusMe is an <h2 style = {{paddingTop: 10}}>affordable, subscription-based, royalty-free music library</h2> powered by TwinsMusic Enterprises, based in Pelham, New York, USA.</p>
         </div>
         <div class = "block"style = {{paddingTop: 20}}>
           <p> The library features original music, sound bites, ringtones, and sound effects fit for <h2 style = {{paddingTop: 10}}>hundreds of moods and settings.</h2></p>
         </div>
-        <div class = "block"style = {{paddingTop: 10}}>
+        <div class = "block"style = {{paddingTop: 10, color: "white"}}>
           <p> MusMe sets itself apart from other music libraries because all music in the library is <h2 style = {{paddingTop: 10}}>original acoustic music.</h2> </p>
         </div>
         <div class = "block"style = {{paddingTop: 10}}>

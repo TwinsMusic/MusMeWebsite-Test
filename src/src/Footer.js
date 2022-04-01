@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 function Footer() {
   return (
-    <div class = "footer">
+    <div class = "footer has-background">
       <div class="columns">
         <div class="column">
           <figure id="footer-logo" class="image is-128x128">
