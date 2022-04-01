@@ -11,7 +11,7 @@ function Header() {
       */}
         <div class = "navbar-brand">
             <Link to = "/" class = "router-link">
-              <img src = "logo.png"></img>
+              <img src = "images/logo.png"></img>
             </Link>
         </div>
         <div class = "navbar-menu" >
@@ -53,6 +53,11 @@ function Header() {
             <div class = "navbar-item">
               <Link to = "/faq"class = "router-link">
                 FAQs
+              </Link>
+            </div>
+            <div class = "navbar-item">
+              <Link to = "/terms"class = "router-link">
+                Terms of Use
               </Link>
             </div>
           </div>
