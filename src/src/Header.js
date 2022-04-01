@@ -11,7 +11,7 @@ function Header() {
       */}
         <div class = "navbar-brand">
             <Link to = "/" class = "router-link">
-              <img src = "logo.png"></img>
+              <img src = "images/logo.png"></img>
             </Link>
         </div>
         <div class = "navbar-menu" >

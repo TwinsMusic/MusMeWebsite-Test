@@ -7,7 +7,7 @@ function Footer() {
       <div class="columns">
         <div class="column">
           <figure id="footer-logo" class="image is-128x128">
-            <Link to="/"><img src = "logo.png" alt=""></img></Link>
+            <Link to="/"><img src = "images/logo.png" alt=""></img></Link>
           </figure>
         </div>    
         <div class="column">
@@ -46,28 +46,28 @@ function Footer() {
             <div class="level-item">
             <a href="https://www.instagram.com/twinsmusicny/">
                 <figure class="image is-32x32">
-                  <img src = "IG-Logo.png" alt=""></img>
+                  <img src = "images/social/IG-Logo.png" alt=""></img>
                 </figure>
               </a>
               </div>
               <div class="level-item">
               <a href="https://www.facebook.com/twinsmusicny">
                 <figure class="image is-32x32">
-                  <img src = "FB-Logo.png" alt=""></img>
+                  <img src = "images/social/FB-Logo.png" alt=""></img>
                 </figure>
               </a>
               </div>
               <div class="level-item">
               <a href="https://www.youtube.com/c/TwinsMusicEnterprises">
                 <figure class="image is-32x32">
-                  <img src = "YT-Logo.png" alt=""></img>
+                  <img src = "images/social/YT-Logo.png" alt=""></img>
                 </figure>
               </a>
               </div>
               <div class="level-item">
               <a href="https://www.linkedin.com/company/twinsmusicny/">
                 <figure class="image is-32x32">
-                  <img src = "LI-Logo.png" alt=""></img>
+                  <img src = "images/social/LI-Logo.png" alt=""></img>
                 </figure>
               </a>
               </div>

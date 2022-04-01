@@ -39,7 +39,7 @@ const content = Content(
       <p>A royalty is a monetary request payment made from the copyright holder each time a musical work is used. A royalty is negotiated by the copyright holder, however the ownership of the master recording of a musical work always stays in the hands of the artist or publishing company. In all cases, individuals are able to use the musical work they paid for without changing or modifying the works.</p>
 ​
       <p>Once again, royalty free means that the licensee does not need to pay or negotiate further payments to use the work, but this does not mean that they own the copyright to the work.</p>
-      <p><img src = "Copyright-img.png"></img></p>
+      <p><img src = "images/faq/Copyright-img.png"></img></p>
       <p>In order to obtain a royalty free license, they need to subscribe to a music library such as MusMe. While royalty free music is meant to allow content creators to be able to monetize their work on digital platforms like YouTube, they CANNOT claim ownership of the musical work or resell, trade, or exploit for profit to other licensees or companies such as ad agencies for commercial purposes. If the licensee would like to use their work for that purpose, they can obtain from us a different type of sync license agreement.</p>
     </Accordion.Body>
 </Accordion.Item>
@@ -54,22 +54,22 @@ const content = Content(
       <p><img src="7step-step2.png" alt=""></img></p>
       <p><b>Step 3:</b><br></br>
       Once downloaded, you should soon see the ringtone file pop up under “Downloads” on your computer. Once you identify where the file is, drag the file into your screensaver region known as “Desktop.” We advise that you create a folder on your computer titled “Ringtones” so that every month you can fill it with our new ringtones.</p>
-      <p><img src="faq/7step-step3-1.png" alt=""></img></p>
-      <p><img src="faq/7step-step3-2.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step3-1.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step3-2.png" alt=""></img></p>
       <p><b>Step 4:</b><br></br>
       Open your Music Application on your computer, and then, using a lightning-to-USB adapter, plug your iPhone into your computer. Once your iPhone shows up on the left-hand side of your music library, click on that.</p>
-      <p><img src="faq/7step-step4.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step4.png" alt=""></img></p>
       <p><b>Step 5:</b><br></br>
       Once there, click on the “Sync Settings” icon in the top right corner of the page. This will take you to a new page. Then click on the “General” icon in the menu bar. There should be a check box that’s labeled “Manually manage music, movies, and TV shows.” Make sure that box is checked off, and that the “Automatically sync when this iPhone is connected” box is unchecked.</p>
-      <p><img src="faq/7step-step5-1.png" alt=""></img></p>
-      <p><img src="faq/7step-step5-2.png" alt=""></img></p>
-      <p><img src="faq/7step-step5-3.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step5-1.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step5-2.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step5-3.png" alt=""></img></p>
       <p><b>Step 6:</b><br></br>
       Drag the ringtone into the general field of the iPhone sync page, which will show up with a green “+” icon next to the file before releasing the mouse. This will place your new ringtone onto your iPhone.</p>
-      <p><img src="faq/7step-step6.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step6.png" alt=""></img></p>
       <p><b>Step 7:</b><br></br>
       Lastly, open your phone and go to “Settings,” then go to “Sounds and Haptics” where you will see a place that says “Ringtones.” Once you click on that, you should then be able to see your recently imported ringtone at the very top of the page, along with the rest of the Apple default ringtones. You can then repeat these steps for the next set of ringtones you decide to import.</p>
-      <p><img src="faq/7step-step7.png" alt=""></img></p>
+      <p><img src="images/faq/7step-step7.png" alt=""></img></p>
       <p><b>We hope that the short tutorial is helpful and contact us with any further questions.</b></p>
     </Accordion.Body>
   </Accordion.Item>
