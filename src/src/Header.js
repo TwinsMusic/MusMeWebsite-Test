@@ -24,6 +24,11 @@ function Header() {
               </div>
               <div class = "navbar-dropdown">
                 <a class = "navbar-item">
+                  <Link to = "/about"style = {{color: "white"}}>
+                    About Us
+                  </Link>
+                </a>
+                <a class = "navbar-item">
                   <Link to = "/team"style = {{color: "white"}}>
                     Meet our Team
                   </Link>
