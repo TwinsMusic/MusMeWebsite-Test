@@ -30,7 +30,7 @@ class Home extends React.Component {
           },
           {
             file: song4,
-            name: "song four"
+            name: "Song Four"
           }
         
         ],  
