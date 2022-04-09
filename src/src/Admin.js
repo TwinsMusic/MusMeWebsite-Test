@@ -19,15 +19,29 @@ class Admin extends React.Component {
 
         };
         this.addTrack = this.addTrack.bind(this);
+        this.deleteTrack = this.deleteTrack.bind(this);
+        this.handleTitleChange = this.handleTitleChange.bind(this);
+        this.handleArtistChange = this.handleArtistChange.bind(this);
+        this.handleYearChange = this.handleYearChange.bind(this);
+        this.handleGenreChange = this.handleGenreChange.bind(this);
+        this.handleTagsChange = this.handleTagsChange.bind(this);
+        this.handleURLChange = this.handleURLChange.bind(this);
+        this.emptyTable = this.emptyTable.bind(this);
+        this.emptyForms = this.emptyForms.bind(this);
     }
     //Get all tracks from /api/tracks/all
     componentDidMount() {
+        this.renderTracks();
+    }
+
+    renderTracks() {
         fetch(path + "api/tracks/all")
             .then(res => res.json())
             .then(data => {
                 for(let i = 0; i < data.length; i++) {
                     let body = document.getElementById("tableBody");
-                    body.appendChild(document.createElement('tr'))
+                    let tableRow = body.appendChild(document.createElement('tr'));
+                    tableRow.id = data[i].id;
                     let row = body.lastChild;
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].title;
@@ -42,56 +56,189 @@ class Admin extends React.Component {
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].url;
                     row.appendChild(document.createElement('td'));
-                    row.lastChild.innerHTML = "<button id='delete' className='formButton' class='button is-primary' onClick={this.deleteTrack}>Delete</button>";
+                    let btn = document.createElement("button");
+                    btn.id = data[i].id + "delete";
+                    btn.className = "button is-primary formButton";
+                    btn.onclick = this.deleteTrack;
+                    btn.innerHTML = "Delete";
+                    row.lastChild.appendChild(btn);
                 }
-            })
+            });
+    }
+
+    deleteTrack(event) {
+        var td = event.target.parentNode;
+        var tr = td.parentNode;
+        fetch(path + "api/tracks/" +  tr.id.substring(0, event.target.id.length - 6), {
+            method: "DELETE"
+        })
+        /*.then(res => res.json())
+        .then(data => {
+            if(data <= 0) {
+                document.getElementById("deleteSuccessAlert").style.display = "block";
+            }
+            else {
+                document.getElementById("deleteFailureAlert").style.display = "block";
+            }
+        });*/
+        tr.parentNode.removeChild(tr);
+
     }
 
     addTrack () {
+        //send post request to path + /api/tracks/add
+        fetch(path + "api/tracks/save", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "title": this.state.title,
+                "artist": this.state.artist,
+                "year": this.state.year,
+                "genre": this.state.genre,
+                "url": this.state.url,
+                "tags": this.state.tags
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data >= 0) {
+                document.getElementById("addSuccessAlert").style.display = "block";
+                this.emptyTable();
+                this.emptyForms();
+                this.renderTracks();
+            }
+            else {
+                document.getElementById("addFailureAlert").style.display = "block";
+                this.emptyTable();
+                this.renderTracks();
+            }
+        });
+
+    }
+    emptyForms() {
+        this.setState({
+            title: "",
+            artist: "",
+            year: "",
+            genre: "",
+            tags: "",
+            url: ""
+        });
+        document.getElementById("title").value = "";
+        document.getElementById("artist").value = "";
+        document.getElementById("year").value = "";
+        document.getElementById("genre").value = "";
+        document.getElementById("tags").value = "";
+        document.getElementById("url").value = "";
+    }
+
+    emptyTable() {
+        document.getElementById("tableBody").innerHTML = "";
+    }
+
+    handleTitleChange(event) {
+        this.setState({title: event.target.value});
+    }
+
+    handleArtistChange(event) {
+        this.setState({artist: event.target.value});
+    }
+
+    handleYearChange(event) {
+        this.setState({year: event.target.value});
+    }
+
+    handleGenreChange(event) {
+        this.setState({genre: event.target.value});
+    }
+
+    handleTagsChange(event) {
+        this.setState({tags: event.target.value});
+    }
+
+    handleURLChange(event) {
+        this.setState({url: event.target.value});
+    }
+
+    closeAddSuccessAlert() {
+        document.getElementById("addSuccessAlert").style.display = "none";
+    }
+
+    closeAddFailureAlert() {
+        document.getElementById("addFailureAlert").style.display = "none";
+    }
+
+    closeDeleteSuccessAlert() {
+        document.getElementById("deleteSuccessAlert").style.display = "none";
+    }
+
+    closeDeleteFailureAlert() {
+        document.getElementById("deleteFailureAlert").style.display = "none";
     }
 
     render() {
         return(
             <div class="wrapperDiv">
+                <div class="alertWrapper">
+                    <div id="addSuccessAlert" className="alert" class="notification is-success">
+                    <button class="delete" onClick={this.closeAddSuccessAlert}></button>
+                        Track added successfully
+                    </div>
+                    <div id="addFailureAlert" className="alert" class="notification is-danger">
+                    <button class="delete" onClick={this.closeAddFailureAlert}></button>
+                        Failed to add track
+                    </div>
+                    <div id="deleteSuccessAlert" className="alert" class="notification is-success">
+                    <button class="delete" onClick={this.closeDeleteSuccessAlert}></button>
+                        Track deleted successfully
+                    </div>
+                    <div id="deleteFailureAlert" className="alert" class="notification is-danger">
+                    <button class="delete" onClick={this.closeDeleteFailureAlert}></button>
+                        Failed to delete track
+                    </div>
+                    
+                </div>
                 <table class="center">
                     <thead>
                         <tr>
-                        <th>Title</th>
-                        <th>Artist</th>
-                        <th>Year</th>
-                        <th>Genre</th>
-                        <th>Tags</th>
-                        <th>URL</th>
-                        <th></th>
+                            <th>Title</th>
+                            <th>Artist</th>
+                            <th>Year</th>
+                            <th>Genre</th>
+                            <th>Tags</th>
+                            <th>URL</th>
+                            <th></th>
+                        </tr>
+                        <tr>
+                        <td>
+                                <input class="input is-rounded" type="text" id="title" name="title" onChange={this.handleTitleChange} placeholder="Title" />
+                            </td>
+                            <td>
+                                <input class="input is-rounded" type="text" id="artist" name="artist"  onChange={this.handleArtistChange} placeholder="Artist" />
+                            </td>
+                            <td>
+                                <input class="input is-rounded" type="text" id="year" name="year"  onChange={this.handleYearChange} placeholder="Year" />
+                            </td>
+                            <td>
+                                <input class="input is-rounded" type="text" id="genre" name="genre"  onChange={this.handleGenreChange} placeholder="Genre" />
+                            </td>
+                            <td>
+                                <input class="input is-rounded" type="text" id="tags" name="tags"  onChange={this.handleTagsChange}placeholder="Tags" />
+                            </td>
+                            <td>
+                                <input class="input is-rounded" type="text" id="url" name="url"  onChange={this.handleURLChange}placeholder="URL" />
+                            </td>
+                            <td>
+                                <button id="add" class="button is-primary is-hovered formButton" onClick={this.addTrack}>Add</button>
+                            </td>
                         </tr>
                     </thead>
-                    <tbody id="tableBody">
-                        <tr>
-                            <td>
-                                <input class="input is-rounded" type="text" id="title" name="title" placeholder="Title" />
-                            </td>
-                            <td>
-                                <input class="input is-rounded" type="text" id="artist" name="artist" placeholder="Artist" />
-                            </td>
-                            <td>
-                                <input class="input is-rounded" type="text" id="year" name="year" placeholder="Year" />
-                            </td>
-                            <td>
-                                <input class="input is-rounded" type="text" id="genre" name="genre" placeholder="Genre" />
-                            </td>
-                            <td>
-                                <input class="input is-rounded" type="text" id="tags" name="tags" placeholder="Tags" />
-                            </td>
-                            <td>
-                                <input class="input is-rounded" type="text" id="url" name="url" placeholder="URL" />
-                            </td>
-                            <td>
-                                <button id="add" className='formButton' class="button is-primary" onClick={this.addTrack}>Add</button>
-                            </td>
-                        </tr>
-                    </tbody>
+                    <tbody id="tableBody"></tbody>
                 </table>
             </div>
+            
         );
     }
 }
