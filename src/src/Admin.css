@@ -1,0 +1,34 @@
+.wrapperDiv {
+    display: flex;
+    justify-content: center;
+}
+
+table.center {
+    background-color: primary !important;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+th {
+    color: white !important;
+}
+
+tr {
+    color: white !important;
+    text-align: center;
+    width: 30%;
+}
+
+button {
+    display: block;
+    margin-right: 50px;
+}
+#delete {
+    width: 100% !important;
+}
+
+#add {
+    width: 100% !important;
+}
+
+
