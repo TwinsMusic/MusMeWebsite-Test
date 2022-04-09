@@ -1,0 +1,67 @@
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 60%;
+}
+.formWrapper {
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    justify-content: center;
+    width: 300px;
+    padding: 1%;
+    border-radius: 5px; 
+}
+input {
+    border-radius: 5px;
+    margin: 0%;
+}
+
+.fieldLabel {
+    margin-bottom: 0px !important;
+    text-align: left;
+    margin-bottom: 5px !important;
+}
+
+.submit {
+    border-radius: 5px;
+    margin-top: 1%;
+    width: 100%;
+}
+
+input {
+    color: darkgray !important;
+}
+
+.usernameFieldAndInput {
+    display: flex;
+    align-items: left;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.formWrapper button {
+    width: 100%;
+}
+
+#successAlert {
+    text-align: center;
+    display: none;
+}
+
+#existsAlert {
+    text-align: center;
+    display: none;
+}
+
+#passwordAlert {
+    text-align: center;
+    display: none;
+}
+
+#genericAlert {
+    text-align: center;
+    display: none;
+}
