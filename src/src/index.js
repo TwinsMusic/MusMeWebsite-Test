@@ -16,7 +16,6 @@ import Subscribe from './Subscribe';
 import Team from './Team';
 import Test from './Test';
 import Login from './Login';
-import Admin from './Admin';
 import SignUp from './SignUp';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
@@ -48,7 +47,6 @@ ReactDOM.render(
       <Route exact path = "/cart" component = {Cart}/>
       <Route exact path = "/test" component = {Test}/>
       <Route exact path = "/login" component = {Login}/>
-      <Route exact path = "/admin" component = {Admin}/>
       <Route exact path = "/signup" component = {SignUp}/>
     {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
