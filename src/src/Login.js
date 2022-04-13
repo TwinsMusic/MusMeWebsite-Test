@@ -1,13 +1,17 @@
 import React from "react";
 import "./Login.css";
+import Admin from "./Admin";
 import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link
+    Redirect,
+    Link,
+    BrowserRouter
   } from "react-router-dom";
 
 const path = "http://localhost:8080/";
+var loggedIn = false;
 
 class Login extends React.Component {
     constructor(props) {
@@ -15,6 +19,7 @@ class Login extends React.Component {
         this.state = {
             username: "",
             password: "",
+            loginId: "",
         };
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -53,8 +58,10 @@ class Login extends React.Component {
                     document.getElementById("passwordAlert").style.display = "block";
                 }
                 else if(data >= 0) {
+                    this.setState({loginId: data});
+                    loggedIn = true;
                     document.getElementById("successAlert").style.display = "block";
-                    window.location.href = "/admin";
+                    this.forceUpdate();
                 }
                 else {
                     document.getElementById("genericAlert").style.display = "block";
@@ -63,53 +70,62 @@ class Login extends React.Component {
     }
 
     render() {
-        return (
-            <div className="wrapper">
-                <h1>Login</h1>
-                <div id="successAlert" className="alert" class="notification is-success">
-                    Login successful
+        if(loggedIn) {
+            return(
+                <div>
+                    <Admin loginId = {this.state.loginId}></Admin>
                 </div>
-                <div id="existsAlert" className="alert" class="notification is-danger">
-                    Login failed: Username does not exist
-                </div>
-                <div id="passwordAlert" className="alert" class="notification is-danger">
-                    Login failed: Password is incorrect
-                </div>
-                <div id="genericAlert" className="alert" class="notification is-danger">
-                    Login failed
-                </div>
-                <div className="formWrapper">
-                    <div className="usernameLabelAndInput">
-                        <h5 className= "fieldLabel">Username</h5>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                                <input class="input is-rounded" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
-                                <span class="icon is-small is-left">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                            </p>
-                        </div>
+            );
+        }
+        else {
+            return (
+                <div className="wrapper">
+                    <h1>Login</h1>
+                    <div id="successAlert" className="alert" class="notification is-success">
+                        Login successful
                     </div>
-                    <p></p>
-                    <div className="passwordLabelAndInput">
-                        <h5 className="fieldLabel">Password</h5>
-                        <div class="field">
-                            <p class="control has-icons-left">
-                            <input class="input is-rounded" type="password" value={this.state.password} onChange = {this.handlePasswordChange}/>
-                                <span class="icon is-small is-left">
-                                <i class="fas fa-lock"></i>
-                                </span>
-                            </p>
+                    <div id="existsAlert" className="alert" class="notification is-danger">
+                        Login failed: Username does not exist
+                    </div>
+                    <div id="passwordAlert" className="alert" class="notification is-danger">
+                        Login failed: Password is incorrect
+                    </div>
+                    <div id="genericAlert" className="alert" class="notification is-danger">
+                        Login failed
+                    </div>
+                    <div className="formWrapper">
+                        <div className="usernameLabelAndInput">
+                            <h5 className= "fieldLabel">Username</h5>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                    <input class="input is-rounded" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
+                                    <span class="icon is-small is-left">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </p>
+                            </div>
                         </div>
-                    </div>  
-                    <button id="login" class="button is-primary is-rounded" onClick={this.handleLogin}>Login</button>
-                    <p/>
-                    <Link to="/signup">
-                    <button id="signup" class="button is-primary is-rounded">Sign Up</button>
-                    </Link>
+                        <p></p>
+                        <div className="passwordLabelAndInput">
+                            <h5 className="fieldLabel">Password</h5>
+                            <div class="field">
+                                <p class="control has-icons-left">
+                                <input class="input is-rounded" type="password" value={this.state.password} onChange = {this.handlePasswordChange}/>
+                                    <span class="icon is-small is-left">
+                                    <i class="fas fa-lock"></i>
+                                    </span>
+                                </p>
+                            </div>
+                        </div>  
+                        <button id="login" class="button is-primary is-rounded" onClick={this.handleLogin}>Login</button>
+                        <p/>
+                        <Link to="/signup">
+                        <button id="signup" class="button is-primary is-rounded">Sign Up</button>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 

@@ -1,5 +1,4 @@
 import React from "react";
-import { render } from "react-dom";
 import "./Admin.css";
 
 const path = "http://localhost:8080/";
@@ -15,7 +14,9 @@ class Admin extends React.Component {
             genre: "",
             tags: [],
             url: "",
-            test: ""
+            editing: false,
+            loggedIn: false,
+            adminId: this.props.loginId,
 
         };
         this.addTrack = this.addTrack.bind(this);
@@ -28,10 +29,20 @@ class Admin extends React.Component {
         this.handleURLChange = this.handleURLChange.bind(this);
         this.emptyTable = this.emptyTable.bind(this);
         this.emptyForms = this.emptyForms.bind(this);
+        this.editTrack = this.editTrack.bind(this);
+        this.saveEdits = this.saveEdits.bind(this);
     }
     //Get all tracks from /api/tracks/all
     componentDidMount() {
+        console.log("ID Admin: " + this.state.adminId);
+        if(this.state.adminId >= 0) {
+            this.loadPage();
+        }
+    }
+
+    loadPage () {
         this.renderTracks();
+        document.getElementById("add").onclick = this.addTrack;
     }
 
     renderTracks() {
@@ -62,11 +73,19 @@ class Admin extends React.Component {
                     btn.onclick = this.deleteTrack;
                     btn.innerHTML = "Delete";
                     row.lastChild.appendChild(btn);
+                    row.appendChild(document.createElement('td'));
+                    let btn2 = document.createElement("button");
+                    btn2.id = data[i].id + "edit";
+                    btn2.className = "button is-primary formButton";
+                    btn2.onclick = this.editTrack;
+                    btn2.innerHTML = "Edit";
+                    row.lastChild.appendChild(btn2);
                 }
             });
     }
 
     deleteTrack(event) {
+        this.closeAllAlerts();
         var td = event.target.parentNode;
         var tr = td.parentNode;
         fetch(path + "api/tracks/" +  tr.id.substring(0, event.target.id.length - 6), {
@@ -86,6 +105,7 @@ class Admin extends React.Component {
     }
 
     addTrack () {
+        this.closeAllAlerts();
         //send post request to path + /api/tracks/add
         fetch(path + "api/tracks/save", {
             method: "POST",
@@ -115,8 +135,70 @@ class Admin extends React.Component {
                 this.renderTracks();
             }
         });
+    }
+
+    editTrack(event) {
+        this.closeAllAlerts();
+        this.setState({editing: true});
+        var td = event.target.parentNode;
+        var tr = td.parentNode;
+        tr.style.display = "none";
+        this.setState({
+            id: tr.id,
+            title: tr.childNodes[0].innerHTML,
+            artist: tr.childNodes[1].innerHTML,
+            year: tr.childNodes[2].innerHTML,
+            genre: tr.childNodes[3].innerHTML,
+            tags: tr.childNodes[4].innerHTML,
+            url: tr.childNodes[5].innerHTML
+        });
+        let addButton = document.getElementById("add");
+        addButton.innerHTML = "Save";
+        addButton.onclick = this.saveEdits;
+        document.getElementById("title").value = this.state.title;
+        document.getElementById("artist").value = this.state.artist;
+        document.getElementById("year").value = this.state.year;
+        document.getElementById("genre").value = this.state.genre;
+        document.getElementById("tags").value = this.state.tags;
+        document.getElementById("url").value = this.state.url;
 
     }
+
+    saveEdits() {
+        this.closeAllAlerts();
+        fetch(path + "api/tracks/"+this.state.id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "title": this.state.title,
+                "artist": this.state.artist,
+                "year": this.state.year,
+                "genre": this.state.genre,
+                "url": this.state.url,
+                "tags": this.state.tags
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.id == this.state.id) {
+                document.getElementById("updateSuccessAlert").style.display = "block";
+                this.emptyTable();
+                this.emptyForms();
+                this.renderTracks();
+            }
+            else {
+                document.getElementById("updateFailureAlert").style.display = "block";
+                this.emptyTable();
+                this.renderTracks();
+            }
+        });
+        let addButton = document.getElementById("add");
+        addButton.innerHTML = "Add";
+        addButton.onclick = this.addTrack;
+    }
+
     emptyForms() {
         this.setState({
             title: "",
@@ -178,6 +260,23 @@ class Admin extends React.Component {
         document.getElementById("deleteFailureAlert").style.display = "none";
     }
 
+    closeUpdateSuccessAlert() {
+        document.getElementById("updateSuccessAlert").style.display = "none";
+    }
+
+    closeUpdateFailureAlert() {
+        document.getElementById("updateFailureAlert").style.display = "none";
+    }
+
+    closeAllAlerts() {
+        this.closeAddSuccessAlert();
+        this.closeAddFailureAlert();
+        this.closeDeleteSuccessAlert();
+        this.closeDeleteFailureAlert();
+        this.closeUpdateSuccessAlert();
+        this.closeUpdateFailureAlert();
+    }
+
     render() {
         return(
             <div class="wrapperDiv">
@@ -189,6 +288,14 @@ class Admin extends React.Component {
                     <div id="addFailureAlert" className="alert" class="notification is-danger">
                     <button class="delete" onClick={this.closeAddFailureAlert}></button>
                         Failed to add track
+                    </div>
+                    <div id="updateSuccessAlert" className="alert" class="notification is-success">
+                    <button class="delete" onClick={this.closeUpdateSuccessAlert}></button>
+                        Track updatted successfully
+                    </div>
+                    <div id="updateFailureAlert" className="alert" class="notification is-warning">
+                    <button class="delete" onClick={this.closeUpdateFailureAlert}></button>
+                        Failed to update track, added as new track instead
                     </div>
                     <div id="deleteSuccessAlert" className="alert" class="notification is-success">
                     <button class="delete" onClick={this.closeDeleteSuccessAlert}></button>
@@ -231,7 +338,10 @@ class Admin extends React.Component {
                                 <input class="input is-rounded" type="text" id="url" name="url"  onChange={this.handleURLChange}placeholder="URL" />
                             </td>
                             <td>
-                                <button id="add" class="button is-primary is-hovered formButton" onClick={this.addTrack}>Add</button>
+                                <button id="add" class="button is-primary is-hovered formButton">Add</button>
+                            </td>
+                            <td>
+                                <p></p>
                             </td>
                         </tr>
                     </thead>

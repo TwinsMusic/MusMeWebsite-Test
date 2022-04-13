@@ -68,3 +68,13 @@ tr {
     display: none;
 }
 
+#updateSuccessAlert {
+    text-align: center;
+    display: none;
+}
+
+#updateFailureAlert {
+    text-align: center;
+    display: none;
+}
+
