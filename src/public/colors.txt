@@ -1,0 +1,11 @@
+---------------
+COLOR HEX CODES
+---------------
+
+MusMe Logo:
+        Pink: #431ec4
+ Dark Purple: #431ec4
+Light Purple: #bc8af2
+        Teal: #55bcc5
+
+Background Blue: #12153e
