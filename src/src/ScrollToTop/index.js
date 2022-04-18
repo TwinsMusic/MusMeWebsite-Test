@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 //import { FaAngleUp } from 'react-icons/fa';
+//credit for most of the code: https://stackabuse.com/how-to-scroll-to-top-in-react-with-a-button-component/ Joel Olawanle
 
 import './index.css';
 
@@ -23,7 +24,7 @@ const ScrollToTop = () => {
     return (
         <div className="top-to-btm">
             {showTopBtn && (<button className="button-position"
-             onClick={goToTop}>l</button>)
+             onClick={goToTop}>^</button>)
                 /*<FaAngleUp
                     className="icon-position icon-style"
                     onClick={goToTop}
