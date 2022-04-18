@@ -33,6 +33,11 @@ function Header() {
                     Featured Artists
                   </Link>
                 </a>
+                <a class = "navbar-item">
+                  <Link to = "/contact" style = {{color: "white"}}>
+                    Customize your Music
+                  </Link>
+                </a>
               </div>
             </div>
             <div class = "navbar-item">

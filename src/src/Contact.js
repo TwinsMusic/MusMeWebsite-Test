@@ -3,8 +3,8 @@ import Title from "./Title.js";
 import Content from "./Content";
 const title = Title("About","Royalty free music library");
 const content = Content(
-  <section class="section">
   <div class = "container">
+  <body>
     <p>TwinsMusic Enterprises Corporation is a global musical artist management company built on bringing cultural experiences to large and diverse audiences. 
     TwinsMusic organizes music events such as concerts, festivals, and, tours for jazz and gospel artists in the US and Europe. The TwinsMusic team works 
     closely with clients on artist management and working to achieve their professional goals. TwinsMusic also works with artists on releasing and 
@@ -23,16 +23,16 @@ const content = Content(
     <p>We appreciate your business and hope you enjoy our exclusive MusMe Music Library!</p>
 
     <p>If you are looking to license music for a commercial, film, radio, or tv show, please contact our sales representative at <a href="mailto:giusymagri@twinsmusicny.info">giusymagri@twinsmusicny.info</a></p>
+  </body>
   </div>
-  </section>
 )
-function About() {
+function Contact() {
   return (
     <div>
       {title}
       {content}
     </div>
-  );
-  
+  ); 
 }
-export default About;
+
+export default Contact;
