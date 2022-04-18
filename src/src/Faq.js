@@ -6,7 +6,7 @@ import Content from "./Content";
 const title = Title("FAQs","Frequently asked questions");
 
 const answerStyle = {
-  backgroundColor:"#bc8af2",
+  backgroundColor:"#12153e",
   color:"white"
 }
 

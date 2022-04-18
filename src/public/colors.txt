@@ -3,7 +3,7 @@ COLOR HEX CODES
 ---------------
 
         Pink: #e83dc4
- Dark Purple: #431ec4
+ Dark Purple: #4a0bcc
 Light Purple: #bc8af2
         Teal: #01bbc2
    Dark Teal: #01a6ad
