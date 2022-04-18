@@ -21,6 +21,7 @@ import Login from './Login';
 import SignUp from './SignUp';
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import ScrollToTop from './ScrollToTop';
 
 
 ReactDOM.render(
@@ -55,7 +56,7 @@ ReactDOM.render(
     {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
     </div>
-    
+    <ScrollToTop />    
     <Footer />
     
   </BrowserRouter>
