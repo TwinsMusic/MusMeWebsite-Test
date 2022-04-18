@@ -4,6 +4,11 @@
 .router-link:hover{
   color: #01BBC2;
 }
+
+.about-link {
+color: #ffffff !important;
+}
+
 div.amplitude-play-pause {
   width: 74px;
   height: 74px;
@@ -86,7 +91,7 @@ a:-webkit-any-link {
 
 .accordion-button {
   color:white !important;
-  background-color: #431ec4 !important;
+  background-color: #E83DC4 !important;
 }
 
 .accordion-item {

@@ -17,8 +17,8 @@ function Header() {
         <div class = "navbar-menu" >
           <div class = "navbar-start">
             <div class = "navbar-item has-dropdown is-hoverable">
-              <div class = "navbar-link">
-                <Link to = "/about" class = "router-link">
+              <div class = "about-link navbar-link">
+                <Link to = "/about" class = "about-link router-link">
                 About
                 </Link>
               </div>
