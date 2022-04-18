@@ -7,7 +7,7 @@ const title = Title("Team","Meet our team");
 
 const content = Content(
   <div class="container">
-      <Card style={{backgroundColor:"#12153e"}}>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 0, borderColor: 'transparent', elevation: 0}}>
       <div class = "columns">
         <div class = "column is-one-third">
           <img class="img-fluid" src="images/team/team-ceo.jpg" alt="Giuseppina Magri"></img>
@@ -25,7 +25,7 @@ const content = Content(
       </div>
     </Card>
 
-    <Card style={{backgroundColor:"#12153e"}}>
+    <Card style={{backgroundColor:"#12153e", borderWidth: 0, borderColor: 'transparent', elevation: 0}}>
       <div class = "columns">
         <div class = "column">
           <Card.Body>
@@ -43,7 +43,7 @@ const content = Content(
       </div>
     </Card>
 
-    <Card style={{backgroundColor:"#12153e"}}>
+    <Card style={{backgroundColor:"#12153e", borderWidth: 0, borderColor: 'transparent', elevation: 0}}>
       <div class = "columns">
         <div class = "column is-one-third">
           <img class="img-fluid" src="images/team/team-sales-1.jpg" alt="Saniya Joshi"></img>
@@ -61,7 +61,7 @@ const content = Content(
       </div>
     </Card>
 
-    <Card style={{backgroundColor:"#12153e"}}>
+    <Card style={{backgroundColor:"#12153e", borderWidth: 0, borderColor: 'transparent', elevation: 0}}>
       <div class = "columns">
         <div class = "column">
           <Card.Body>
