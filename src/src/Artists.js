@@ -8,7 +8,7 @@ const content = Content(
 
   <section class="section">
       <div class="container">
-          <Card style={{backgroundColor:"#12153e"}}>
+          <Card style={{backgroundColor:"#12153e", borderWidth: 0, borderColor: 'transparent', elevation: 0}}>
             <div class = "columns">
               <div class = "column is-one-quarter">
                 <img className="artist-pic" src="images/artists/antonio-ciacca.jpg" alt="Antonio Ciacca"></img>

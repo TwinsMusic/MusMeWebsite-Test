@@ -1,17 +1,22 @@
 .router-link{
-    color: #ffffff;
+  color: #ffffff;
 }
 .router-link:hover{
-    color: #01BBC2;
+  color: #01BBC2;
 }
+
+.about-link {
+color: #ffffff !important;
+}
+
 div.amplitude-play-pause {
-    width: 74px;
-    height: 74px;
-    cursor: pointer;
-    float: left;
-    margin-left: 10px;
-  }
-  
+  width: 74px;
+  height: 74px;
+  cursor: pointer;
+  float: left;
+  margin-left: 10px;
+}
+
 div.amplitude-play-pause.amplitude-paused {
 background: url('../img/play.svg');
 background-size: cover;
@@ -23,63 +28,72 @@ background-size: cover;
 }
 
 :focus {
-  outline: 0 !important;
-  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
+outline: 0 !important;
+box-shadow: 0 0 0 0 rgba(0, 0, 0, 0) !important;
 }
 
 .footer {
-  background-color: #13173a;
-  color: white;
-  text-align: center;
-  padding-left: 20%;
-  padding-right: 20%;
-  padding-top: 4%; 
-  width: 100%;
+background-color: #13173a;
+color: white;
+text-align: center;
+padding-left: 20%;
+padding-right: 20%;
+padding-top: 4%; 
+width: 100%;
 }
 
 #footer-logo {
-  margin-left: auto;
-  margin-right: auto;
+margin-left: auto;
+margin-right: auto;
 }
 
 #footer-musme {
-  color: #54bbc4;
-  font-weight: bold;
-  font-size: 40px;
-  margin-top: 3%;
+color: #54bbc4;
+font-weight: bold;
+font-size: 40px;
+margin-top: 3%;
 }
 
 #footer-musme:hover {
-  color: #ff4081;
+color: #ff4081;
 }
 
 #footer-info {
-  color: #54bbc4;
+color: #54bbc4;
 }
 
 .footer-links {
-  color:white;
-  text-decoration: none;
-  font-weight: bold;
+color:white;
+text-decoration: none;
+font-weight: bold;
 }
 
 .footer-custom-link {
-  color:#54bbc4;
-  text-decoration: none;
+color:#54bbc4;
+text-decoration: none;
 }
 
 .footer-custom-link:hover {
-  color: #ff4081;
+color: #ff4081;
 }
 
 .team-pic {
-  margin-left: 1.2%;
-  margin-top: 1%;
+margin-left: 1.2%;
+margin-top: 1%;
 
-  height: 19%;
+height: 19%;
 }
 
 a:-webkit-any-link {
-    text-decoration: none;
-    color: inherit;
-  }
+  text-decoration: none;
+  color: inherit;
+}
+
+.accordion-button {
+  color:white !important;
+  background-color: #4a0bcc !important;
+}
+
+.accordion-item {
+border: none !important;
+}

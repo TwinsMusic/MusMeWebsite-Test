@@ -7699,4 +7699,14 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #01BBC2;
   padding: 3rem 1.5rem 6rem; }
 
+.card-body {
+  background-color: #12153e;
+}
+
+.card {
+  background-color: #12153e;
+  border-color: #12153e;
+  box-shadow: none;
+}
+
 /*# sourceMappingURL=mystyles.css.map */
