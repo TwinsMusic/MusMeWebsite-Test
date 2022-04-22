@@ -66,20 +66,37 @@ class Admin extends React.Component {
                     row.lastChild.innerHTML = data[i].tags;
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].url;
+
                     row.appendChild(document.createElement('td'));
-                    let btn = document.createElement("button");
-                    btn.id = data[i].id + "delete";
-                    btn.className = "button is-primary formButton";
-                    btn.onclick = this.deleteTrack;
-                    btn.innerHTML = "Delete";
-                    row.lastChild.appendChild(btn);
+                    let deleteButton = document.createElement("button");
+                    deleteButton.id = data[i].id + "delete";
+                    deleteButton.className = "button is-primary formButton";
+                    deleteButton.onclick = this.deleteTrack;
+                    deleteButton.innerHTML = "Delete";
+                    row.lastChild.appendChild(deleteButton);
+
                     row.appendChild(document.createElement('td'));
-                    let btn2 = document.createElement("button");
-                    btn2.id = data[i].id + "edit";
-                    btn2.className = "button is-primary formButton";
-                    btn2.onclick = this.editTrack;
-                    btn2.innerHTML = "Edit";
-                    row.lastChild.appendChild(btn2);
+                    let editButton= document.createElement("button");
+                    editButton.id = data[i].id + "edit";
+                    editButton.className = "button is-primary formButton";
+                    editButton.onclick = this.editTrack;
+                    editButton.innerHTML = "Edit";
+                    row.lastChild.appendChild(editButton);
+
+                    row.appendChild(document.createElement('td'));
+                    let checkbox = document.createElement("label");
+                    checkbox.id = data[i].id + "addToHome";
+                    checkbox.className = "checkbox is-primary";
+                    checkbox.type = "checkbox";
+                    checkbox.innerHTML = "Add";
+                    row.lastChild.appendChild(checkbox);
+
+                    /*
+                    <label class="checkbox">
+                    <input type="checkbox">
+                    Remember me
+                    </label>
+                    */
                 }
             });
     }
@@ -91,7 +108,7 @@ class Admin extends React.Component {
         fetch(path + "api/tracks/" +  tr.id.substring(0, event.target.id.length - 6), {
             method: "DELETE"
         })
-        /*.then(res => res.json())
+        .then(res => res.json())
         .then(data => {
             if(data <= 0) {
                 document.getElementById("deleteSuccessAlert").style.display = "block";
@@ -99,7 +116,7 @@ class Admin extends React.Component {
             else {
                 document.getElementById("deleteFailureAlert").style.display = "block";
             }
-        });*/
+        });
         tr.parentNode.removeChild(tr);
 
     }
@@ -342,6 +359,9 @@ class Admin extends React.Component {
                             </td>
                             <td>
                                 <p></p>
+                            </td>
+                            <td>
+                                Add to Home
                             </td>
                         </tr>
                     </thead>
