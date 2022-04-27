@@ -1,6 +1,7 @@
 import {Card, Row, Col, Button} from 'react-bootstrap';
 import Title from "./Title.js";
 import Content from "./Content";
+import { Link } from 'react-router-dom';
 
 const title = Title("Browse","Music Samples");
 
@@ -13,7 +14,9 @@ const content = Content(
       <Card>
         <Card.Img variant="top" src="images/browse/ringtones.jpg" />
         <Card.Body className="has-text-centered">
+        <Link to="/ringtones">
         <Button id="button-style">Ringtones</Button>
+        </Link>
         </Card.Body>
       </Card>
     </Col>
@@ -21,7 +24,9 @@ const content = Content(
       <Card>
         <Card.Img variant="top" src="images/browse/moods.jpg" />
         <Card.Body className="has-text-centered">
+        <Link to="/moods">
         <Button id="button-style">Moods</Button>
+        </Link>
         </Card.Body>
       </Card>
     </Col>
@@ -29,7 +34,9 @@ const content = Content(
       <Card>
         <Card.Img variant="top" src="images/browse/sound-effects.jpg" />
         <Card.Body className="has-text-centered">
-          <Button id="button-style">Sound Effects</Button>
+        <Link to="/soundeffects">
+        <Button id="button-style">Sound Effects</Button>
+        </Link>
         </Card.Body>
       </Card>
     </Col>
