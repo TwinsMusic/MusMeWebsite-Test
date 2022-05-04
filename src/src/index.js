@@ -46,7 +46,7 @@ ReactDOM.render(
       <Route exact path = "/faq" component = {Faq}/>
       <Route exact path = "/cart" component = {Cart}/>
       <Route exact path = "/test" component = {Test}/>
-      <Route exact path = "/login" component = {Login}/>
+      <Route exact path = "/admin" component = {Login}/>
       <Route exact path = "/signup" component = {SignUp}/>
     {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
