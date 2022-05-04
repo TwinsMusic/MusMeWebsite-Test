@@ -199,7 +199,7 @@ class Admin extends React.Component {
         })
         .then(res => res.json())
         .then(data => {
-            if(data.id == this.state.id) {
+            if(data.id === this.state.id) {
                 document.getElementById("updateSuccessAlert").style.display = "block";
                 this.emptyTable();
                 this.emptyForms();

@@ -1,7 +1,6 @@
 
 import Title from "./Title.js";
 import Content from "./Content";
-import {Link} from "react-router-dom";
 import React from "react";
 
 import "./Subscribe.css";
