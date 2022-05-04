@@ -11,81 +11,81 @@ const content = Content(
         <h1 class = "has-text-centered">Moods</h1>
         <Row xs={1} md={3} className="g-3">
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/calm.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/calmmood">
-        <Button id="button-style">Calm</Button>
+        <button id="button-style" class="button is-primary is-rounded">Calm</button>
         </Link>
         </Card.Body>
       </Card>
     </Col> 
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/classic.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/classicmood">
-        <Button id="button-style">Classic</Button>
+        <button id="button-style" class="button is-primary is-rounded">Classic</button>
         </Link>
         </Card.Body>
       </Card>
     </Col> 
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/dreamy.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/dreamymood">
-        <Button id="button-style">Dreamy</Button>
+        <button id="button-style" class="button is-primary is-rounded">Dreamy</button>
         </Link>
         </Card.Body>
       </Card>
     </Col> 
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/epic.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/epicmood">
-        <Button id="button-style">Epic</Button>
+        <button id="button-style" class="button is-primary is-rounded">Epic</button>
         </Link>
         </Card.Body>
       </Card>
     </Col> 
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/happy.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/happymood">
-        <Button id="button-style">Happy</Button>
+        <button id="button-style" class="button is-primary is-rounded">Happy</button>
         </Link>
         </Card.Body>
       </Card>
     </Col>
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/inspirational.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/inspirationalmood">
-        <Button id="button-style">Inspirational</Button>
+        <button id="button-style" class="button is-primary is-rounded">Inspirational</button>
         </Link>
         </Card.Body>
       </Card>
     </Col> 
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/jazzy.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/jazzymood">
-        <Button id="button-style">Jazzy</Button>
+        <button id="button-style" class="button is-primary is-rounded">Jazzy</button>
         </Link>
         </Card.Body>
       </Card>
     </Col> 
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="/images/browse/moods/suspenseful.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/suspensefulmood">
-        <Button id="button-style">Suspenseful</Button>
+        <button id="button-style" class="button is-primary is-rounded">Suspenseful</button>
         </Link>
         </Card.Body>
       </Card>

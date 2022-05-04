@@ -11,31 +11,31 @@ const content = Content(
         <h1 class = "has-text-centered">Browse Music</h1>
         <Row xs={1} md={3} className="g-3">
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="images/browse/ringtones.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/ringtones">
-        <Button id="button-style">Ringtones</Button>
+        <button id="button-style" class="button is-primary is-rounded">Ringtones</button>
         </Link>
         </Card.Body>
       </Card>
     </Col>
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="images/browse/moods.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/moods">
-        <Button id="button-style">Moods</Button>
+        <button id="button-style" class="button is-primary is-rounded">Moods</button>
         </Link>
         </Card.Body>
       </Card>
     </Col>
     <Col>
-      <Card>
+      <Card style={{backgroundColor:"#12153e", borderWidth: 3, borderColor: "#0e1132", elevation: 0}}>
         <Card.Img variant="top" src="images/browse/sound-effects.jpg" />
         <Card.Body className="has-text-centered">
         <Link to="/soundeffects">
-        <Button id="button-style">Sound Effects</Button>
+        <button id="button-style" class="button is-primary is-rounded">Sound Effects</button>
         </Link>
         </Card.Body>
       </Card>
