@@ -10,6 +10,8 @@ import song2 from "./featured/02.mp3";
 import song3 from "./featured/03.mp3";
 import song4 from "./featured/04.mp3";
 
+const path = "http://localhost:8080/";
+
 class Home extends React.Component {
   constructor(props){
     super(props);
@@ -42,8 +44,6 @@ class Home extends React.Component {
     
     
   }
-  
-
  
   render(){
     

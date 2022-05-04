@@ -14,6 +14,7 @@ class Admin extends React.Component {
             genre: "",
             tags: [],
             url: "",
+            onHome: false,
             editing: false,
             loggedIn: false,
             adminId: this.props.loginId,
@@ -31,6 +32,7 @@ class Admin extends React.Component {
         this.emptyForms = this.emptyForms.bind(this);
         this.editTrack = this.editTrack.bind(this);
         this.saveEdits = this.saveEdits.bind(this);
+        this.updateOnHome = this.updateOnHome.bind(this);
     }
     //Get all tracks from /api/tracks/all
     componentDidMount() {
@@ -84,19 +86,19 @@ class Admin extends React.Component {
                     row.lastChild.appendChild(editButton);
 
                     row.appendChild(document.createElement('td'));
-                    let checkbox = document.createElement("label");
+                    let checkboxLabel = document.createElement("label");
+                    checkboxLabel.className = "checkbox";
+                    
+                    let checkbox = document.createElement("input");
                     checkbox.id = data[i].id + "addToHome";
                     checkbox.className = "checkbox is-primary";
+                    checkbox.class = "checkbox";
                     checkbox.type = "checkbox";
                     checkbox.innerHTML = "Add";
-                    row.lastChild.appendChild(checkbox);
-
-                    /*
-                    <label class="checkbox">
-                    <input type="checkbox">
-                    Remember me
-                    </label>
-                    */
+                    checkbox.checked = data[i].onHome;
+                    checkbox.onchange = this.updateOnHome;
+                    row.lastChild.appendChild(checkboxLabel);
+                    checkboxLabel.appendChild(checkbox);
                 }
             });
     }
@@ -135,7 +137,8 @@ class Admin extends React.Component {
                 "year": this.state.year,
                 "genre": this.state.genre,
                 "url": this.state.url,
-                "tags": this.state.tags
+                "tags": this.state.tags,
+                "onHome": false
             })
         })
         .then(res => res.json())
@@ -181,6 +184,39 @@ class Admin extends React.Component {
 
     }
 
+    updateOnHome(event) {      
+        this.closeAllAlerts();
+        this.setState({editing: true});
+        var td = event.target.parentNode.parentNode;
+        var tr = td.parentNode;
+        console.log(td);
+        this.setState({
+            id: tr.id,
+            title: tr.childNodes[0].innerHTML,
+            artist: tr.childNodes[1].innerHTML,
+            year: tr.childNodes[2].innerHTML,
+            genre: tr.childNodes[3].innerHTML,
+            tags: tr.childNodes[4].innerHTML,
+            url: tr.childNodes[5].innerHTML,
+            onHome: event.target.checked
+        });
+        fetch(path + "api/tracks/"+this.state.id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "title": this.state.title,
+                "artist": this.state.artist,
+                "year": this.state.year,
+                "genre": this.state.genre,
+                "url": this.state.url,
+                "tags": this.state.tags,
+                "onHome": this.state.onHome
+            })
+        })
+    }
+
     saveEdits() {
         this.closeAllAlerts();
         fetch(path + "api/tracks/"+this.state.id, {
@@ -194,12 +230,13 @@ class Admin extends React.Component {
                 "year": this.state.year,
                 "genre": this.state.genre,
                 "url": this.state.url,
-                "tags": this.state.tags
+                "tags": this.state.tags,
+                "onHome": this.state.onHome
             })
         })
         .then(res => res.json())
         .then(data => {
-            if(data.id === this.state.id) {
+            if(data.id == this.state.id) {
                 document.getElementById("updateSuccessAlert").style.display = "block";
                 this.emptyTable();
                 this.emptyForms();
