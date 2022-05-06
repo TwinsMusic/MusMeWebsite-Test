@@ -11,7 +11,7 @@ function Header() {
       */}
         <div class = "navbar-brand">
             <Link to = "/" class = "router-link">
-              <img src = "images/logo.png"></img>
+              <img style={{height: 48}} src = "images/logo.png"></img>
             </Link>
         </div>
         <div class = "navbar-menu" >

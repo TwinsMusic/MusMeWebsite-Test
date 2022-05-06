@@ -2,7 +2,7 @@
   color: #ffffff;
 }
 .router-link:hover{
-  color: #01BBC2;
+  color: #00e6e6;
 }
 
 .about-link {
@@ -48,18 +48,18 @@ margin-right: auto;
 }
 
 #footer-musme {
-color: #54bbc4;
+color: #00ffff;
 font-weight: bold;
 font-size: 40px;
 margin-top: 3%;
 }
 
 #footer-musme:hover {
-color: #ff4081;
+color: #e23295;
 }
 
 #footer-info {
-color: #54bbc4;
+color: #00ffff;
 }
 
 .footer-links {
@@ -69,12 +69,12 @@ font-weight: bold;
 }
 
 .footer-custom-link {
-color:#54bbc4;
+color:#00ffff;
 text-decoration: none;
 }
 
 .footer-custom-link:hover {
-color: #ff4081;
+color: #e23295;
 }
 
 .team-pic {
@@ -91,7 +91,7 @@ a:-webkit-any-link {
 
 .accordion-button {
   color:white !important;
-  background-color: #4a0bcc !important;
+  background-color: #4e479f !important;
 }
 
 .accordion-item {

@@ -10,8 +10,6 @@ const answerStyle = {
   color:"white"
 }
 
-
-
 const content = Content(
 <div class="container">
 <Accordion>
