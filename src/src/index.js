@@ -71,7 +71,7 @@ ReactDOM.render(
       <Route exact path = "/cart" component = {Cart}/>
       <Route exact path = "/test" component = {Test}/>
       <Route exact path = "/terms" component = {Terms}/>
-      <Route exact path = "/login" component = {Login}/>
+      <Route exact path = "/admin" component = {Login}/>
       <Route exact path = "/signup" component = {SignUp}/>
       <Route exact path = "/ringtones" component = {Ringtones}/>
       <Route exact path = "/soundeffects" component = {SoundEffects}/>
