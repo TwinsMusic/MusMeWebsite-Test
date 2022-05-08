@@ -9,7 +9,7 @@ class Song extends React.Component  {
       wavesurfer: WaveSurfer.create({
         container: "#"+props.container,
         waveColor: 'white',
-        progressColor: '#01BBC2',
+        progressColor: '#00ffff',
         barHeight: 1,
         fillParent: true,
         height: 75,

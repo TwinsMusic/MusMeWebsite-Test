@@ -3,11 +3,7 @@ import "./Login.css";
 import Admin from "./Admin";
 import {
     BrowserRouter as Router,
-    Switch,
-    Route,
-    Redirect,
     Link,
-    BrowserRouter
   } from "react-router-dom";
 
 const path = "http://localhost:8080/";

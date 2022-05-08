@@ -11,7 +11,7 @@ function Header() {
       */}
         <div class = "navbar-brand">
             <Link to = "/" class = "router-link">
-              <img src = "images/logo.png"></img>
+              <img style={{height: 48}} src = "images/logo.png"></img>
             </Link>
         </div>
         <div class = "navbar-menu" >
@@ -63,11 +63,6 @@ function Header() {
             <div class = "navbar-item">
               <Link to = "/terms"class = "router-link">
                 Terms of Use
-              </Link>
-            </div>
-            <div class = "navbar-item">
-              <Link to = "/login"class = "router-link">
-                Admin
               </Link>
             </div>
           </div>
