@@ -35,7 +35,7 @@ class Admin extends React.Component {
         this.updateOnHome = this.updateOnHome.bind(this);
         this.logout = this.logout.bind(this);
     }
-    //Get all tracks from /api/tracks/all
+    //Reload the page if the user is logged in on mounting
     componentDidMount() {
         console.log("ID Admin: " + this.state.adminId);
         if(this.state.adminId >= 0) {
@@ -43,68 +43,95 @@ class Admin extends React.Component {
         }
     }
 
+    //Render the tracks from the database and set the add button to call the addTrack function
     loadPage () {
         this.renderTracks();
         document.getElementById("add").onclick = this.addTrack;
     }
 
+    //Retrieve tracks from the database and render them in the table
+    //Dynamically create table based on the number of tracks in the database
     renderTracks() {
         fetch(path + "api/tracks/all")
             .then(res => res.json())
             .then(data => {
+                //data[i] is a track object
                 for(let i = 0; i < data.length; i++) {
                     let body = document.getElementById("tableBody");
                     let tableRow = body.appendChild(document.createElement('tr'));
+                    //set the id of the row to the track id
                     tableRow.id = data[i].id;
                     let row = body.lastChild;
+                    //create a td for the title
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].title;
+                    //create a td for the artist
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].artist;
+                    //create a td for the year
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].year;
+                    //create a td for the genre
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].genre;
+                    //create a td for the tags
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].tags;
+                    //create a td for the url
                     row.appendChild(document.createElement('td'));
                     row.lastChild.innerHTML = data[i].url;
 
+                    //create a td for the delete button
                     row.appendChild(document.createElement('td'));
                     let deleteButton = document.createElement("button");
+                    //set the id of the button to the track id
                     deleteButton.id = data[i].id + "delete";
                     deleteButton.className = "button is-primary formButton";
+                    //set the onclick event to the deleteTrack function
                     deleteButton.onclick = this.deleteTrack;
                     deleteButton.innerHTML = "Delete";
+                    //append the button to the td
                     row.lastChild.appendChild(deleteButton);
 
+                    //create a td for the edit button
                     row.appendChild(document.createElement('td'));
                     let editButton= document.createElement("button");
+                    //set the id of the button to the track id
                     editButton.id = data[i].id + "edit";
                     editButton.className = "button is-primary formButton";
+                    //set the onclick event to the editTrack function
                     editButton.onclick = this.editTrack;
                     editButton.innerHTML = "Edit";
+                    //append the button to the td
                     row.lastChild.appendChild(editButton);
 
+                    //create a td for the onHome checkbox
                     row.appendChild(document.createElement('td'));
                     let checkboxLabel = document.createElement("label");
                     checkboxLabel.className = "checkbox";
-                    
+                    //create the checkbox
                     let checkbox = document.createElement("input");
+                    //set the id of the checkbox to the track id
                     checkbox.id = data[i].id + "addToHome";
                     checkbox.className = "checkbox is-primary";
                     checkbox.class = "checkbox";
                     checkbox.type = "checkbox";
                     checkbox.innerHTML = "Add";
+                    //set the checked property based off of database information
                     checkbox.checked = data[i].onHome;
+                    //set the onclick event to the updateOnHome function
                     checkbox.onchange = this.updateOnHome;
+                    //append the checkbox to the label
                     row.lastChild.appendChild(checkboxLabel);
+                    //append the label to the td
                     checkboxLabel.appendChild(checkbox);
                 }
             });
     }
 
+    //Delet a track from the database
     deleteTrack(event) {
+        //close any open alerts
         this.closeAllAlerts();
         var td = event.target.parentNode;
         var tr = td.parentNode;
@@ -114,9 +141,11 @@ class Admin extends React.Component {
         .then(res => res.json())
         .then(data => {
             if(data <= 0) {
+                //If the track was deleted display success message
                 document.getElementById("deleteSuccessAlert").style.display = "block";
             }
             else {
+                //If the track was not deleted display error message
                 document.getElementById("deleteFailureAlert").style.display = "block";
             }
         });
@@ -124,14 +153,16 @@ class Admin extends React.Component {
 
     }
 
+    //Add a track to the database
     addTrack () {
+        //close any open alerts
         this.closeAllAlerts();
-        //send post request to path + /api/tracks/add
         fetch(path + "api/tracks/save", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
+             //stringify a track object to be parsed on the backend
             body: JSON.stringify({
                 "title": this.state.title,
                 "artist": this.state.artist,
@@ -145,12 +176,14 @@ class Admin extends React.Component {
         .then(res => res.json())
         .then(data => {
             if(data >= 0) {
+                //If the track was added successfully, empty the form and render the tracks again and display a success
                 document.getElementById("addSuccessAlert").style.display = "block";
                 this.emptyTable();
                 this.emptyForms();
                 this.renderTracks();
             }
             else {
+                //If the track was not added successfully, display a failure
                 document.getElementById("addFailureAlert").style.display = "block";
                 this.emptyTable();
                 this.renderTracks();
@@ -158,12 +191,14 @@ class Admin extends React.Component {
         });
     }
 
+    //Edit a track in the database
     editTrack(event) {
         this.closeAllAlerts();
         this.setState({editing: true});
         var td = event.target.parentNode;
         var tr = td.parentNode;
         tr.style.display = "none";
+        //set the state to the values of the track being edited
         this.setState({
             id: tr.id,
             title: tr.childNodes[0].innerHTML,
@@ -173,9 +208,11 @@ class Admin extends React.Component {
             tags: tr.childNodes[4].innerHTML,
             url: tr.childNodes[5].innerHTML
         });
+        //Change add button to save button
         let addButton = document.getElementById("add");
         addButton.innerHTML = "Save";
         addButton.onclick = this.saveEdits;
+        //move the existing track data into the text fields to be edidted
         document.getElementById("title").value = this.state.title;
         document.getElementById("artist").value = this.state.artist;
         document.getElementById("year").value = this.state.year;
@@ -185,9 +222,51 @@ class Admin extends React.Component {
 
     }
 
+    //Save the edits to the database
+    saveEdits() {
+        this.closeAllAlerts();
+        fetch(path + "api/tracks/"+this.state.id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            //stringify a track object to be parsed on the backend
+            body: JSON.stringify({
+                "title": this.state.title,
+                "artist": this.state.artist,
+                "year": this.state.year,
+                "genre": this.state.genre,
+                "url": this.state.url,
+                "tags": this.state.tags,
+                "onHome": this.state.onHome
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.id == this.state.id) {
+                //if the database returns the same id as the one we are editing it is a success
+                document.getElementById("updateSuccessAlert").style.display = "block";
+                this.emptyTable();
+                this.emptyForms();
+                this.renderTracks();
+            }
+            else {
+                //otherwise it is a failure from the backend
+                document.getElementById("updateFailureAlert").style.display = "block";
+                this.emptyTable();
+                this.renderTracks();
+            }
+        });
+        let addButton = document.getElementById("add");
+        addButton.innerHTML = "Add";
+        addButton.onclick = this.addTrack;
+    }
+
+    //Update onHome status of track in the database
     updateOnHome(event) {      
         this.closeAllAlerts();
         this.setState({editing: true});
+        //event.target is checkbox, get table data and table row
         var td = event.target.parentNode.parentNode;
         var tr = td.parentNode;
         console.log(td);
@@ -218,42 +297,7 @@ class Admin extends React.Component {
         })
     }
 
-    saveEdits() {
-        this.closeAllAlerts();
-        fetch(path + "api/tracks/"+this.state.id, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                "title": this.state.title,
-                "artist": this.state.artist,
-                "year": this.state.year,
-                "genre": this.state.genre,
-                "url": this.state.url,
-                "tags": this.state.tags,
-                "onHome": this.state.onHome
-            })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if(data.id == this.state.id) {
-                document.getElementById("updateSuccessAlert").style.display = "block";
-                this.emptyTable();
-                this.emptyForms();
-                this.renderTracks();
-            }
-            else {
-                document.getElementById("updateFailureAlert").style.display = "block";
-                this.emptyTable();
-                this.renderTracks();
-            }
-        });
-        let addButton = document.getElementById("add");
-        addButton.innerHTML = "Add";
-        addButton.onclick = this.addTrack;
-    }
-
+    //Empty the user entry forms
     emptyForms() {
         this.setState({
             title: "",
@@ -271,63 +315,78 @@ class Admin extends React.Component {
         document.getElementById("url").value = "";
     }
 
+    //log out the user
     logout() {
         console.log("logout");
         window.location.reload();
     }
 
+    //Empty the table
     emptyTable() {
         document.getElementById("tableBody").innerHTML = "";
     }
 
+    //Handle a change in the title text box
     handleTitleChange(event) {
         this.setState({title: event.target.value});
     }
 
+    //Handle a change in the artist text box
     handleArtistChange(event) {
         this.setState({artist: event.target.value});
     }
 
+    //Handle a change in the year text box
     handleYearChange(event) {
         this.setState({year: event.target.value});
     }
 
+    //Handle a change in the genre text box
     handleGenreChange(event) {
         this.setState({genre: event.target.value});
     }
 
+    //Handle a change in the tags text box
     handleTagsChange(event) {
         this.setState({tags: event.target.value});
     }
 
+    //Handle a change in the url text box
     handleURLChange(event) {
         this.setState({url: event.target.value});
     }
 
+    //Close the add success alert
     closeAddSuccessAlert() {
         document.getElementById("addSuccessAlert").style.display = "none";
     }
 
+    //Close the add failure alert
     closeAddFailureAlert() {
         document.getElementById("addFailureAlert").style.display = "none";
     }
 
+    //Close the delete success alert
     closeDeleteSuccessAlert() {
         document.getElementById("deleteSuccessAlert").style.display = "none";
     }
 
+    //Close the delete failure alert
     closeDeleteFailureAlert() {
         document.getElementById("deleteFailureAlert").style.display = "none";
     }
 
+    //Close the update success alert
     closeUpdateSuccessAlert() {
         document.getElementById("updateSuccessAlert").style.display = "none";
     }
 
+    //Close the update failure alert
     closeUpdateFailureAlert() {
         document.getElementById("updateFailureAlert").style.display = "none";
     }
 
+    //Close all alerts
     closeAllAlerts() {
         this.closeAddSuccessAlert();
         this.closeAddFailureAlert();

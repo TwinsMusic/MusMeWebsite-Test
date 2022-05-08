@@ -21,44 +21,55 @@ class Login extends React.Component {
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
     }
+
+    //Handles a change in the username text field
     handleUsernameChange(event) {
         this.setState({username: event.target.value});
     }
 
+    //Handles a change in the password text field
     handlePasswordChange(event) {
         this.setState({password: event.target.value});
     }
 
+    //Handles the login button being clicked
     handleLogin(event) {
+        //Hide all alerts
         document.getElementById("successAlert").style.display = "none";
         document.getElementById("existsAlert").style.display = "none";
         document.getElementById("passwordAlert").style.display = "none";
         document.getElementById("genericAlert").style.display = "none";
         event.preventDefault();
+        //Verifty information with server
         fetch(path + "api/user/validate", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
+            //Send the username and password to the server
             body: JSON.stringify({
                 username: this.state.username,
                 password: this.state.password,
             }),
         }).then((response) => response.json())
             .then(data => {
+                //If the username already exists return a error-specific message
                 if(data === -2) {
                     document.getElementById("existsAlert").style.display = "block";
                 }
+                //If the password is incorrect return a error-specific message
                 else if(data === -3) {
                     document.getElementById("passwordAlert").style.display = "block";
                 }
+                //If the username and password are correct return set the user's id in the state and reload the page
                 else if(data >= 0) {
                     this.setState({loginId: data});
                     loggedIn = true;
                     document.getElementById("successAlert").style.display = "block";
                     this.forceUpdate();
                 }
+                //Otherwise return a generic error message
                 else {
                     document.getElementById("genericAlert").style.display = "block";
                 }
@@ -66,6 +77,7 @@ class Login extends React.Component {
     }
 
     render() {
+        //If the user is logged in, redirect them to the admin page
         if(loggedIn) {
             return(
                 <div>
@@ -73,6 +85,7 @@ class Login extends React.Component {
                 </div>
             );
         }
+        //Otherwise display the login page
         else {
             return (
                 <div className="wrapper">

@@ -19,34 +19,28 @@ class ResetPassword extends React.Component {
 
     }
 
-    handleResetTokenChange(event) {
-        this.setState( {token: event.target.value});
-    }
-
+    //Handle a change in the password field
     handlePasswordChange(event) {
         this.setState({password: event.target.value});
     }
 
-    handleConfirmPasswordChange(event) {
-        this.setState({confirmPassword: event.target.value});
-    }
-
+    //Send the new password and reset token to the server for verification and reset
     handleCreate(event) {
+        //Hide all alerts
         document.getElementById("successAlert").style.display = "none";
         document.getElementById("existsAlert").style.display = "none";
         document.getElementById("genericAlert").style.display = "none";
 
         event.preventDefault();
-        // if(this.state.password === this.state.confirmPassword) {
-        //     document.getElementById("login").onclick = this.handleCreate;
-        //
-        // }
+
+        //Verifty information with server
         fetch(path + "api/user/resetPassword", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
+            //stringify a user object with all unnecessary fields null
             body: JSON.stringify({
                 firstName: null,
                 lastName: null,
@@ -57,13 +51,16 @@ class ResetPassword extends React.Component {
             }),
         }).then((response) => response.json())
             .then(data => {
+                //If the username does not exist, display an exists alert
                 if(data === -2) {
                     document.getElementById("existsAlert").style.display = "block";
                 }
+                //If the username exists, display a success alert and redirect to the login page
                 else if(data >= 0) {
                     document.getElementById("successAlert").style.display = "block";
                     window.location.href = "/admin";
                 }
+                //Otherwise, display a generic alert
                 else {
                     document.getElementById("genericAlert").style.display = "block";
                 }

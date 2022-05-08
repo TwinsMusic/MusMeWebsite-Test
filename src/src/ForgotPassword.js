@@ -15,10 +15,12 @@ class ForgotPassword extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
+    //Handle a change in the email field
     handleEmailChange(event) {
         this.setState({email: event.target.value});
     }
 
+    //Send the email t0o the server to request a password reset email
     handleSubmit(event) {
         document.getElementById("successAlert").style.display = "none";
         document.getElementById("existsAlert").style.display = "none";
@@ -31,6 +33,7 @@ class ForgotPassword extends React.Component {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             },
+            //stringify a user object with all unnecessary fields null
             body: JSON.stringify({
                 firstName: null,
                 lastName: null,
@@ -40,13 +43,16 @@ class ForgotPassword extends React.Component {
             }),
         }).then((response) => response.json())
             .then(data => {
+                //If the email does not exist, display an exists alert
                 if(data === -2) {
                     document.getElementById("existsAlert").style.display = "block";
                 }
+                //If the email exists and an email is successfully sent on the server side, display a success alert and redirect to the login page
                 else if(data >= 0) {
                     document.getElementById("successAlert").style.display = "block";
                     window.location.href = "/admin";
                 }
+                //If the email exists but the email failed to send, display a generic alert
                 else {
                     document.getElementById("genericAlert").style.display = "block";
                 }
