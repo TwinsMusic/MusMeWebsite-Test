@@ -120,7 +120,11 @@ class Login extends React.Component {
                         <button id="login" class="button is-primary is-rounded" onClick={this.handleLogin}>Login</button>
                         <p/>
                         <Link to="/signup">
-                        <button id="signup" class="button is-primary is-rounded">Sign Up</button>
+                            <button id="signup" class="button is-primary is-rounded">Sign Up</button>
+                        </Link>
+                        <p/><p/>
+                        <Link to="/forgotpassword">
+                            <button id="forgotpassword" class="button is-link is-rounded">Forgot Password?</button>
                         </Link>
                     </div>
                 </div>

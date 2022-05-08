@@ -17,6 +17,8 @@ import Team from './Team';
 import Test from './Test';
 import Login from './Login';
 import SignUp from './SignUp';
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
@@ -48,7 +50,12 @@ ReactDOM.render(
       <Route exact path = "/test" component = {Test}/>
       <Route exact path = "/login" component = {Login}/>
       <Route exact path = "/signup" component = {SignUp}/>
-    {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
+      <Route exact path = "/forgotpassword" component = {ForgotPassword}/>
+      <Route exact path = "/resetpassword" component = {ResetPassword}/>
+      <Route path='/resetpassword/:token'>
+        <ResetPassword />
+      </Route>
+      {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
     </Switch>
     </div>
     
