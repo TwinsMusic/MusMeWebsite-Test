@@ -45,7 +45,7 @@ class ForgotPassword extends React.Component {
                 }
                 else if(data >= 0) {
                     document.getElementById("successAlert").style.display = "block";
-                    window.location.href = "/login";
+                    window.location.href = "/admin";
                 }
                 else {
                     document.getElementById("genericAlert").style.display = "block";
