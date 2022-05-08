@@ -18,6 +18,8 @@ import Terms from './Terms';
 import Test from './Test';
 import Login from './Login';
 import SignUp from './SignUp';
+import ForgotPassword from "./ForgotPassword";
+import ResetPassword from "./ResetPassword";
 // browse
 import Moods from './Moods';
 import Ringtones from './Ringtones';
@@ -73,6 +75,12 @@ ReactDOM.render(
       <Route exact path = "/terms" component = {Terms}/>
       <Route exact path = "/admin" component = {Login}/>
       <Route exact path = "/signup" component = {SignUp}/>
+      <Route exact path = "/forgotpassword" component = {ForgotPassword}/>
+      <Route exact path = "/resetpassword" component = {ResetPassword}/>
+      <Route path='/resetpassword/:token'>
+        <ResetPassword />
+      </Route>
+      {/* ADD OTHER PATHS FOR OTHER PAGES which have links in Header.js*/}
       <Route exact path = "/ringtones" component = {Ringtones}/>
       <Route exact path = "/soundeffects" component = {SoundEffects}/>
       <Route exact path = "/moods" component = {Moods}/>
