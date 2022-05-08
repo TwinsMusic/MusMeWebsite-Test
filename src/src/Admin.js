@@ -33,6 +33,7 @@ class Admin extends React.Component {
         this.editTrack = this.editTrack.bind(this);
         this.saveEdits = this.saveEdits.bind(this);
         this.updateOnHome = this.updateOnHome.bind(this);
+        this.logout = this.logout.bind(this);
     }
     //Get all tracks from /api/tracks/all
     componentDidMount() {
@@ -270,6 +271,11 @@ class Admin extends React.Component {
         document.getElementById("url").value = "";
     }
 
+    logout() {
+        console.log("logout");
+        window.location.reload();
+    }
+
     emptyTable() {
         document.getElementById("tableBody").innerHTML = "";
     }
@@ -404,6 +410,9 @@ class Admin extends React.Component {
                     </thead>
                     <tbody id="tableBody"></tbody>
                 </table>
+                <div id="logoutWrapper">
+                    <button id="logout" class="button is-link is-hovered is-rounded formButton" onClick={this.logout}>Logout</button>
+                </div>
             </div>
             
         );
