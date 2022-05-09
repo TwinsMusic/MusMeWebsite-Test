@@ -12,9 +12,9 @@ class ResetPassword extends React.Component {
             password: "",
             confirmPassword: ""
         };
-        this.handleResetTokenChange = this.handleResetTokenChange.bind(this);
+        //this.handleResetTokenChange = this.handleResetTokenChange.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
-        this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
+        //this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
         this.handleCreate = this.handleCreate.bind(this);
 
     }

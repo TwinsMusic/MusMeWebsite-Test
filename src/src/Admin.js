@@ -1,4 +1,8 @@
 import React from "react";
+import {
+    BrowserRouter as Router,
+    Link,
+  } from "react-router-dom";
 import "./Admin.css";
 
 const path = "http://localhost:8080/";
@@ -470,6 +474,10 @@ class Admin extends React.Component {
                     <tbody id="tableBody"></tbody>
                 </table>
                 <div id="logoutWrapper">
+                    <Link id="addNewUserWrapper" to="/signup">
+                        <button id="addNewUser" class="button is-primary is-rounded">Add New User</button>
+                    </Link>
+                    <p/>
                     <button id="logout" class="button is-link is-hovered is-rounded formButton" onClick={this.logout}>Logout</button>
                 </div>
             </div>

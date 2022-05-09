@@ -60,6 +60,18 @@ tr {
     width: 10%;
 }
 
+#addNewUserWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#addNewUser {
+    width: 10%;
+}
+
 #addSuccessAlert {
     text-align: center;
     display: none;
