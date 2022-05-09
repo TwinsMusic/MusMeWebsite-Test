@@ -4,26 +4,92 @@ import Content from "./Content";
 const title = Title("About","Royalty free music library");
 const content = Content(
   <div class = "container">
-  <body>
-    <p>TwinsMusic Enterprises Corporation is a global musical artist management company built on bringing cultural experiences to large and diverse audiences. 
-    TwinsMusic organizes music events such as concerts, festivals, and, tours for jazz and gospel artists in the US and Europe. The TwinsMusic team works 
-    closely with clients on artist management and working to achieve their professional goals. TwinsMusic also works with artists on releasing and 
-    distributing publications and records worldwide. TwinsMusic organizes workshops and seminars in the US, Europe, and China in collaboration with NYC 
-    jazz workshops. Stevie Wonder, Miriam Makeba, The Manhattan Transfer, Elvin Jones Jazz Machines, Ray Charles, Robert Plant, Chick Corea, Micheal 
-    Petrucciani, The Jazz At Lincoln Center Orchestra with Wynton Marsalis, Monty Alexander, Freddie Hubbard, Benny Golson, Freddy Cole, Regina Carter, and 
-    Ravi Coltrane are some of the great artists that TwinsMusic has presented internationally in the last 25 years. Sala Nervi in Vatican City, Rai,
-    Mediaset, Teatro Regio di Parma, Carnegie Hall, Lincoln Center, Arena di Verona, Orsara Musica, La Spezia International Jazz Festival, Ravenna Jazz 
-    Festival, Ancona Jazz, Ronnie’s Scott,  are some of the institutions TwinsMusic served as artistic consultant/presenter.</p>
-
-    <p>TwinsMusic recently launched an exciting and innovative feature on our online store, MusMe. MusMe is our very own royalty-free music library,  it is an 
-    affordable subscription-based music library that features original music, sound bites, ringtones, and sounds effects. MusMe sets itself apart from other
-    music libraries because all music in the library is acoustic original music. Each month, the MusMe team updates the library with refreshing new music and
-    sounds so users will never run out of new content. Users can pay for yearly or monthly subscriptions through the <a href="https://www.twinsmusicny.com/store.html">TwinsMusic Store</a> </p>
-
-    <p>We appreciate your business and hope you enjoy our exclusive MusMe Music Library!</p>
-
-    <p>If you are looking to license music for a commercial, film, radio, or tv show, please contact our sales representative at <a href="mailto:giusymagri@twinsmusicny.info">giusymagri@twinsmusicny.info</a></p>
-  </body>
+  <div class = "row">
+    <div class ="col">
+    <b style={{color: "white"}}>Name</b>  
+    </div>
+  </div>
+  <div class = "row">
+    <div class ="col">
+      <label style={{color: "white"}}><b>First</b></label> <br></br>
+      <input type = "text" id = "fname" size = "55"></input>
+    </div>
+    <div class ="col">
+      <label style={{color: "white"}}><b>Last</b></label> <br></br>
+      <input type = "text" id = "lname" size= "55"></input>
+    </div>
+    <div class = "row">
+      <div class ="col">
+      <br></br>
+      <b style={{color: "white"}}>Email</b>  
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col">
+        <input type = "text" id = "email" size="121"></input>
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col">
+        <br></br>
+        <label style={{color: "white"}}><b>Music is for?</b></label><br></br>
+        <input type = "radio" id = "commercial" name="use"></input><l style={{color: "white"}} > Commercial Use</l><br></br>
+        <input type = "radio" id = "education" name="use"></input><l style={{color: "white"}}> Education Use</l><br></br>
+        <input type = "radio" id = "personal" name="use"></input><l style={{color: "white"}}> Personal Use</l><br></br>
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col">
+        <br></br>
+        <label style={{color: "white"}}><b>Instrument Type (eg: piano, vocal, etc)</b></label> <br></br>
+        <input type = "text" id = "insttype"  size="121"></input>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col">
+        <br></br>
+        <label style={{color: "white"}}><b>Music Type</b></label><br></br>
+        <select>
+          <option value="">Jazz</option>
+          <option value="">Classical</option>
+          <option value="">Orchestral</option>
+          <option value="">Pop</option>
+          <option value="">World</option>
+          <option value="">Folk</option>
+          <option value="">Other</option>
+        </select>
+      </div>
+    </div>
+    <div class = "row">
+      <div class = "col">
+        <br></br>
+        <label style={{color: "white"}}><b>Occasion/Platform</b></label><br></br>
+        <select>
+          <option value="">TV Commercial</option>
+          <option value="">Wedding</option>
+          <option value="">Student Film</option>
+          <option value="">YouTube</option>
+          <option value="">Others</option>
+        </select>
+      </div>
+    </div>
+    <div class = "row">
+      <div class ="col">
+        <br></br>
+        <label style={{color: "white"}}><b>What else would you like us to know?</b></label><br></br>
+        <textarea rows = "5" cols = "121" name = "description">
+            Enter details here...
+         </textarea><br></br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <br></br>
+        <button type="button" class="btn btn-primary"> Submit</button>
+      </div>
+    </div>
+  </div>
+  
   </div>
 )
 function Contact() {
