@@ -3,7 +3,7 @@ import {Accordion} from 'react-bootstrap';
 import Title from "./Title.js";
 import Content from "./Content";
 
-import "./Faq.css";
+//import "./Faq.css";
 
 const title = Title("FAQs","Frequently asked questions");
 

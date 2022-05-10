@@ -1,0 +1,39 @@
+section.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}
+
+#fname {
+    width: 50%;
+}
+
+#lname {
+    width: 50%;
+    
+}
+
+#email {
+    width: 100%;
+}
+
+#submitWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#submitButton {
+    width: 30%;
+}
