@@ -1,6 +1,5 @@
 import React from "react";
 import {Link} from "react-router-dom";
-
 function Footer() {
   return (
     <div class = "footer has-background">
@@ -36,7 +35,7 @@ function Footer() {
             </div>
           </div>
           <Link id="sub-button" to = "/subscribe">
-          <p><button id="button-style" class="button is-rounded is-link is-hovered">SUBSCRIBE</button></p>
+          <p><button id="button-style" class="button is-rounded is-link is-hovered" >SUBSCRIBE</button></p>
           </Link>
           <p id="footer-info">
           +1 (646) 413-9374<br></br>
