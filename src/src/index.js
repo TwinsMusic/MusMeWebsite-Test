@@ -9,7 +9,6 @@ import Home from './Home';
 import About from './About';
 import Artists from './Artists';
 import Browse from './Browse';
-import Cart from './Cart';
 import Contact from './Contact';
 import Faq from './Faq';
 import Submit from './Submit';
@@ -71,7 +70,6 @@ ReactDOM.render(
       <Route exact path = "/artist-submit" component = {Submit}/>
       <Route exact path = "/faq" component = {Faq}/>
       <Route exact path = "/terms" component = {Terms}/>
-      <Route exact path = "/cart" component = {Cart}/>
       <Route exact path = "/contact" component = {Contact}/>
       <Route exact path = "/test" component = {Test}/>
       <Route exact path = "/terms" component = {Terms}/>

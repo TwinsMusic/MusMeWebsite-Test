@@ -61,6 +61,11 @@ function Header() {
               </Link>
             </div>
             <div class = "navbar-item">
+              <Link to = "/contact"class = "router-link">
+                Request Music
+              </Link>
+            </div>
+            <div class = "navbar-item">
               <Link to = "/faq"class = "router-link">
                 FAQs
               </Link>
@@ -75,14 +80,6 @@ function Header() {
           <div class = "navbar-item">
               123-456-7890
               </div>
-            
-              <Link to = "/cart">
-              <button class = "button is-primary">
-                Cart
-              </button>
-              </Link>
-           
-
           </div>
         </div>
 
