@@ -7,10 +7,15 @@ import Content from "./Content";
 
 const title = Title("FAQs","Frequently asked questions");
 
+const answerStyle = {
+  backgroundColor:"#12153e",
+  color:"white"
+}
+
 const content = Content(
 <div class="container">
 <Accordion>
-  <Accordion.Item eventKey="0">
+  <Accordion.Item style={answerStyle} eventKey="0">
     <Accordion.Header><b>What Do You Do if You Receive This Claim?</b></Accordion.Header>
     <Accordion.Body>
     <p>Because YouTube’s Content ID system does not register that we gave you the license to use the music, you will need to dispute the claim in order to monetize.</p>
@@ -21,21 +26,21 @@ const content = Content(
     <p>4. In the Proof of Ownership description section, write “The audio files are licensed and approved by TwinsMusic Enterprises.”</p>
     </Accordion.Body>
   </Accordion.Item>
-  <Accordion.Item eventKey="1">
+  <Accordion.Item style={answerStyle} eventKey="1">
     <Accordion.Header><b>​My Video Received a Copyright Claim By Content ID. What Should I Do?</b></Accordion.Header>
     <Accordion.Body>
     <p>No submission on YouTube is safe from being the subject of a false claim or mis-identification.</p>
     <p>Our music is always safe to use, because we own the copyrights to all of the sounds in the library. We sometimes use samples in our audio files which are also used by other composers and producers.</p>
     </Accordion.Body>
   </Accordion.Item>
-  <Accordion.Item eventKey="2">
+  <Accordion.Item style={answerStyle} eventKey="2">
     <Accordion.Header><b>Royalty Free vs Copyright</b></Accordion.Header>
     <Accordion.Body>
       <p>So what makes royalty-free music “royalty-free?”</p>
       <p><b>Royalty free</b> means that someone who purchases a license for a musical work does not need to own the <b>copyright</b> or pay <b>royalties</b> each time the licensee wants to use that musical work. <b>Copyright free</b>, on the other hand, means that the <b>copyright</b> for that musical work has expired and is therefore in the public domain.</p>
     </Accordion.Body>
   </Accordion.Item>
-  <Accordion.Item eventKey="3">
+  <Accordion.Item style={answerStyle} eventKey="3">
     <Accordion.Header><b>What is a Royalty?</b></Accordion.Header>
     <Accordion.Body>
       <p>A royalty is a monetary request payment made from the copyright holder each time a musical work is used. A royalty is negotiated by the copyright holder, however the ownership of the master recording of a musical work always stays in the hands of the artist or publishing company. In all cases, individuals are able to use the musical work they paid for without changing or modifying the works.</p>
@@ -45,7 +50,7 @@ const content = Content(
       <p>In order to obtain a royalty free license, they need to subscribe to a music library such as MusMe. While royalty free music is meant to allow content creators to be able to monetize their work on digital platforms like YouTube, they CANNOT claim ownership of the musical work or resell, trade, or exploit for profit to other licensees or companies such as ad agencies for commercial purposes. If the licensee would like to use their work for that purpose, they can obtain from us a different type of sync license agreement.</p>
     </Accordion.Body>
 </Accordion.Item>
-  <Accordion.Item eventKey="4">
+  <Accordion.Item style={answerStyle} eventKey="4">
     <Accordion.Header><b>7 Steps to Set Up Your MusMe Ringtones</b></Accordion.Header>
     <Accordion.Body>
       <p><b>Step 1:</b><br></br>

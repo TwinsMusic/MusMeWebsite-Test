@@ -11,18 +11,23 @@ function Header() {
       */}
         <div class = "navbar-brand">
             <Link to = "/" class = "router-link">
-              <img src = "images/logo.png"></img>
+              <img style={{height: 48}} src = "images/logo.png"></img>
             </Link>
         </div>
         <div class = "navbar-menu" >
           <div class = "navbar-start">
             <div class = "navbar-item has-dropdown is-hoverable">
-              <div class = "navbar-link">
-                <Link to = "/about" class = "router-link">
+              <div class = "about-link navbar-link">
+                <Link to = "/about" class = "about-link router-link">
                 About
                 </Link>
               </div>
               <div class = "navbar-dropdown">
+                <a class = "navbar-item">
+                  <Link to = "/about"style = {{color: "white"}}>
+                    About Us
+                  </Link>
+                </a>
                 <a class = "navbar-item">
                   <Link to = "/team"style = {{color: "white"}}>
                     Meet our Team

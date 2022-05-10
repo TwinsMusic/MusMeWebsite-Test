@@ -1,0 +1,22 @@
+---------------
+COLOR HEX CODES
+---------------
+      Orange: #feb503
+Light Purple: #ae8bc0
+ Dark Violet: #4e479f
+        Teal: #00ffff
+ Dimmed Teal: #00e6e6
+ Dimmer Teal: #00cccc
+        Pink: #e23295
+
+   Dark Blue: #12153e
+
+---------------------
+
+COLORS FROM OLD LOGO: 
+        Pink: #e83dc4
+ Dark Purple: #4a0bcc
+Light Purple: #bc8af2
+        Teal: #01bbc2
+   Dark Teal: #01a6ad
+   Dark Blue: #12153e

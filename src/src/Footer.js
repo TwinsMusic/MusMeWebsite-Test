@@ -15,7 +15,9 @@ function Footer() {
               <Link class="footer-links" to = "/about">
                 <p>ABOUT</p>
               </Link>
-              <p>SERVICES</p>
+              <Link class="footer-links" to = "/subscribe">
+                <p>SUBSCRIBE</p>
+              </Link>
               <Link class="footer-links" to = "/browse">
                 <p>BROWSE</p>
               </Link>

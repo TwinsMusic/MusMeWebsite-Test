@@ -45,7 +45,31 @@ tr {
 }
 
 .formButton:hover {
-    background-color: #E83DC4 !important;
+    background-color: #e23295 !important;
+}
+
+#logoutWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#logout {
+    width: 10%;
+}
+
+#addNewUserWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#addNewUser {
+    width: 10%;
 }
 
 #addSuccessAlert {
