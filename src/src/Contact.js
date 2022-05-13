@@ -107,7 +107,9 @@ class Contact extends React.Component {
     const title = Title("Contact","Customize Your Music");
 
     const content = Content(
-      <div class = "container">
+      <div class = {"container"}>
+        <div class="columns is-centered">
+        <div class="column is-8">
       <div class = "row">
         <div class ="col">
           <label style={{color: "white"}}><b>First Name</b></label> <br></br>
@@ -189,7 +191,8 @@ class Contact extends React.Component {
           </div>
         </div>
       </div>
-      
+      </div>
+      </div>
       </div>
     )
     return (
