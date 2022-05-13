@@ -73,7 +73,7 @@ function Header() {
           </div>
           <div class = "navbar-end">
           <div class = "navbar-item">
-              1-646-413-9374
+              +1-646-413-9374
               </div>
           </div>
         </div>
