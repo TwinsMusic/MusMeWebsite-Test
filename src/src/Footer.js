@@ -37,10 +37,6 @@ function Footer() {
           <Link id="sub-button" to = "/subscribe">
           <p><button id="button-style" class="button is-rounded is-link is-hovered" >SUBSCRIBE</button></p>
           </Link>
-          <p id="footer-info">
-          +1 (646) 413-9374<br></br>
-          <a class="footer-custom-link" href="mailto:twinsmusicny@yahoo.com">twinsmusicny@yahoo.com</a>
-          </p>
           <div class="column">
           <div class="content has-text-centered">
             <nav class="level">
@@ -75,6 +71,15 @@ function Footer() {
               </nav>
           </div>
           </div>
+          <div class="column">
+            CONTACT US
+            <p id="footer-info">
+              +1 (646) 413-9374<br></br>
+              <a class="footer-custom-link" href="mailto:twinsmusicny@yahoo.com">twinsmusicny@yahoo.com</a>
+            </p>
+            <br></br>
+              <a class="footer-custom-link" href="/admin">Admin Login</a>
+            </div>
           </div>
         <div class="column">
         <Link class="footer-custom-link" to = "/"><p id="footer-musme">MusMe</p></Link>
