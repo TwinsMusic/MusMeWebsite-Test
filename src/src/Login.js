@@ -4,7 +4,7 @@ import Admin from "./Admin";
 import {
     BrowserRouter as Router,
     Link,
-  } from "react-router-dom";
+} from "react-router-dom";
 
 const path = "http://localhost:8080/";
 var loggedIn = false;
@@ -24,12 +24,12 @@ class Login extends React.Component {
 
     //Handles a change in the username text field
     handleUsernameChange(event) {
-        this.setState({username: event.target.value});
+        this.setState({ username: event.target.value });
     }
 
     //Handles a change in the password text field
     handlePasswordChange(event) {
-        this.setState({password: event.target.value});
+        this.setState({ password: event.target.value });
     }
 
     //Handles the login button being clicked
@@ -40,6 +40,13 @@ class Login extends React.Component {
         document.getElementById("passwordAlert").style.display = "none";
         document.getElementById("genericAlert").style.display = "none";
         event.preventDefault();
+
+        // this.setState({ loginId: data });
+        loggedIn = true;
+        document.getElementById("successAlert").style.display = "block";
+        this.forceUpdate();
+
+        /*
         //Verifty information with server
         fetch(path + "api/user/validate", {
             method: 'POST',
@@ -54,17 +61,19 @@ class Login extends React.Component {
             }),
         }).then((response) => response.json())
             .then(data => {
+                alert(data);
                 //If the username already exists return a error-specific message
-                if(data === -2) {
+                if (data === -2) {
                     document.getElementById("existsAlert").style.display = "block";
                 }
                 //If the password is incorrect return a error-specific message
-                else if(data === -3) {
+                else if (data === -3) {
                     document.getElementById("passwordAlert").style.display = "block";
                 }
                 //If the username and password are correct return set the user's id in the state and reload the page
-                else if(data >= 0) {
-                    this.setState({loginId: data});
+                else if (data >= 0) {
+                    //else if(data == data) {
+                    this.setState({ loginId: data });
                     loggedIn = true;
                     document.getElementById("successAlert").style.display = "block";
                     this.forceUpdate();
@@ -73,15 +82,16 @@ class Login extends React.Component {
                 else {
                     document.getElementById("genericAlert").style.display = "block";
                 }
-        });
+            });
+            */
     }
 
     render() {
         //If the user is logged in, redirect them to the admin page
-        if(loggedIn) {
-            return(
+        if (loggedIn) {
+            return (
                 <div>
-                    <Admin loginId = {this.state.loginId}></Admin>
+                    <Admin loginId={this.state.loginId}></Admin>
                 </div>
             );
         }
@@ -104,7 +114,7 @@ class Login extends React.Component {
                     </div>
                     <div className="formWrapper">
                         <div className="usernameLabelAndInput">
-                            <h5 className= "fieldLabel">Username</h5>
+                            <h5 className="fieldLabel">Username</h5>
                             <div class="field">
                                 <p class="control has-icons-left">
                                     <input class="input is-rounded" type="text" value={this.state.username} onChange={this.handleUsernameChange} />
@@ -119,15 +129,15 @@ class Login extends React.Component {
                             <h5 className="fieldLabel">Password</h5>
                             <div class="field">
                                 <p class="control has-icons-left">
-                                <input class="input is-rounded" type="password" value={this.state.password} onChange = {this.handlePasswordChange}/>
+                                    <input class="input is-rounded" type="password" value={this.state.password} onChange={this.handlePasswordChange} />
                                     <span class="icon is-small is-left">
-                                    <i class="fas fa-lock"></i>
+                                        <i class="fas fa-lock"></i>
                                     </span>
                                 </p>
                             </div>
-                        </div>  
+                        </div>
                         <button id="login" class="button is-primary is-rounded" onClick={this.handleLogin}>Login</button>
-                        <p/><p/>
+                        <p /><p />
                         <Link to="/forgotpassword">
                             <button id="forgotpassword" class="button is-link is-rounded">Forgot Password?</button>
                         </Link>

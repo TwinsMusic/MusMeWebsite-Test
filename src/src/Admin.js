@@ -49,7 +49,7 @@ class Admin extends React.Component {
 
     //Render the tracks from the database and set the add button to call the addTrack function
     loadPage () {
-        this.renderTracks();
+        // this.renderTracks();
         document.getElementById("add").onclick = this.addTrack;
     }
 
@@ -154,7 +154,6 @@ class Admin extends React.Component {
             }
         });
         tr.parentNode.removeChild(tr);
-
     }
 
     //Add a track to the database
