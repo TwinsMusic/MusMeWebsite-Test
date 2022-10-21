@@ -18,7 +18,7 @@ import Terms from './Terms';
 import Test from './Test';
 import Login from './Login';
 import SignUp from './SignUp';
-import App from '.App';
+import App from './App';
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 // browse
