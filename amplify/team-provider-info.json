@@ -10,6 +10,17 @@
       "StackName": "amplify-amplify5b33723336a74-staging-192433",
       "StackId": "arn:aws:cloudformation:us-east-2:630773686289:stack/amplify-amplify5b33723336a74-staging-192433/fe8ab4c0-5175-11ed-89ca-02623022f644",
       "AmplifyAppId": "d2ied2rbk7p3mw"
+    },
+    "categories": {
+      "auth": {
+        "musmewebsitetest04272754": {}
+      },
+      "storage": {
+        "musmewebsitetestc5d50f4e": {
+          "bucketName": "musme-test-bucket",
+          "region": "us-east-2"
+        }
+      }
     }
   }
 }
