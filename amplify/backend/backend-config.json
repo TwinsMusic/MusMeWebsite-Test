@@ -1,10 +1,37 @@
 {
+  "storage": {
+    "dynamoMusMeSongs": {
+      "service": "DynamoDB",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "function": {
+    "songsLambda": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "storage",
+          "resourceName": "dynamoMusMeSongs",
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "attributeEnvMap": {
+            "Name": "TABLE_NAME",
+            "Arn": "TABLE_ARN"
+          }
+        }
+      ]
+    }
+  },
   "auth": {
-    "musmewebsitetest04272754": {
+    "musmewebsitetest": {
       "service": "Cognito",
+      "serviceType": "managed",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
-      "customAuth": false,
       "frontendAuthConfig": {
         "socialProviders": [],
         "usernameAttributes": [],
@@ -25,12 +52,20 @@
       }
     }
   },
-  "storage": {
-    "musmewebsitetestc5d50f4e": {
-      "service": "S3",
-      "serviceType": "imported",
+  "api": {
+    "musmeAPI": {
+      "service": "API Gateway",
       "providerPlugin": "awscloudformation",
-      "dependsOn": []
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "songsLambda",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
     }
   }
 }

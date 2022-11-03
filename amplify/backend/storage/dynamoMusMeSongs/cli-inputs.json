@@ -1,0 +1,10 @@
+{
+  "resourceName": "dynamoMusMeSongs",
+  "tableName": "MusMeSongsTable",
+  "partitionKey": {
+    "fieldName": "id",
+    "fieldType": "string"
+  },
+  "gsi": [],
+  "triggerFunctions": []
+}

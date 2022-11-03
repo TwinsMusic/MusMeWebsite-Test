@@ -1,4 +1,35 @@
 {
+  "apicreate": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-musmewebsitetest-apicreate-153736-authRole",
+      "UnauthRoleArn": "arn:aws:iam::630773686289:role/amplify-musmewebsitetest-apicreate-153736-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::630773686289:role/amplify-musmewebsitetest-apicreate-153736-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-musmewebsitetest-apicreate-153736-deployment",
+      "UnauthRoleName": "amplify-musmewebsitetest-apicreate-153736-unauthRole",
+      "StackName": "amplify-musmewebsitetest-apicreate-153736",
+      "StackId": "arn:aws:cloudformation:us-east-2:630773686289:stack/amplify-musmewebsitetest-apicreate-153736/7152c6c0-5b8d-11ed-bb60-027745f6c014",
+      "AmplifyAppId": "d2ied2rbk7p3mw",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-musmewebsitetest-apicreate-153736-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "function": {
+        "songsLambda": {
+          "deploymentBucketName": "amplify-musmewebsitetest-apicreate-153736-deployment",
+          "s3Key": "amplify-builds/songsLambda-55723543724157584831-build.zip"
+        }
+      },
+      "auth": {
+        "musmewebsitetest": {}
+      },
+      "storage": {
+        "dynamoMusMeSongs": {}
+      },
+      "api": {
+        "musmeAPI": {}
+      }
+    }
+  },
   "staging": {
     "awscloudformation": {
       "AuthRoleName": "amplify-amplify5b33723336a74-staging-192433-authRole",
@@ -20,6 +51,9 @@
           "bucketName": "musme-test-bucket",
           "region": "us-east-2"
         }
+      },
+      "function": {
+        "songsLambda": {}
       }
     }
   }

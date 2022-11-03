@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "musmewebsitetest04272754_identitypool_04272754",
-    "allowUnauthenticatedIdentities": false,
-    "resourceNameTruncated": "musmew04272754",
-    "userPoolName": "musmewebsitetest04272754_userpool_04272754",
+    "identityPoolName": "musmewebsitetest_identitypool_a588800d",
+    "allowUnauthenticatedIdentities": true,
+    "resourceNameTruncated": "musmewa588800d",
+    "userPoolName": "musmewebsitetest_userpool_a588800d",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,15 +31,12 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "musmew04272754_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "musmewa588800d_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "04272754",
-    "resourceName": "musmewebsitetest04272754",
     "authSelections": "identityPoolAndUserPool",
-    "useDefault": "default",
-    "userPoolGroupList": [],
+    "resourceName": "musmewebsitetest",
+    "sharedId": "a588800d",
     "serviceName": "Cognito",
-    "usernameCaseSensitive": false,
-    "useEnabledMfas": true
+    "useDefault": "manual"
   }
-}
+} 

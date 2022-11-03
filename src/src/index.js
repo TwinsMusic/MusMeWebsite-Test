@@ -38,6 +38,11 @@ import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
 
 import Admin from './Admin'
 
+import { Amplify, API } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+
 export default function ScrollToTop() {
   const { pathname } = useLocation();
 

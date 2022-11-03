@@ -1,3 +1,4 @@
+import { API } from "aws-amplify";
 import React from "react";
 import {
     BrowserRouter as Router,
@@ -5,8 +6,8 @@ import {
   } from "react-router-dom";
 import "./Admin.css";
 
-const path = "http://localhost:8080/";
-//const path = "s3://musme-test-bucket/release"
+const apiName = "musmeAPI";
+const path = "https://dynamodb.us-east-2.amazonaws.com";
 
 class Admin extends React.Component {
     constructor(props) {
@@ -43,9 +44,10 @@ class Admin extends React.Component {
     //Reload the page if the user is logged in on mounting
     componentDidMount() {
         console.log("ID Admin: " + this.state.adminId);
-        if(this.state.adminId >= 0) {
+        // Commented out for testing purposes, uncomment later!
+        //if(this.state.adminId >= 0) {
             this.loadPage();
-        }
+        //}
     }
 
     //Render the tracks from the database and set the add button to call the addTrack function
@@ -57,10 +59,15 @@ class Admin extends React.Component {
     //Retrieve tracks from the database and render them in the table
     //Dynamically create table based on the number of tracks in the database
     renderTracks() {
-        fetch(path + "api/tracks/all")
-            .then(res => res.json())
+        //fetch(path + "api/tracks/all")
+            //.then(res => res.json())
+            //.then(data => {
+        console.log("Rendering Tracks");
+        API.get(apiName, '/songs', {})
+            .then(res => JSON.parse(res))
             .then(data => {
                 //data[i] is a track object
+                console.log(data);
                 for(let i = 0; i < data.length; i++) {
                     let body = document.getElementById("tableBody");
                     let tableRow = body.appendChild(document.createElement('tr'));
@@ -131,6 +138,8 @@ class Admin extends React.Component {
                     //append the label to the td
                     checkboxLabel.appendChild(checkbox);
                 }
+            }).catch(err => {
+                console.log(err);
             });
     }
 
