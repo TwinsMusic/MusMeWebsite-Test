@@ -36,6 +36,8 @@ import JazzyMood from './JazzyMood';
 import SuspensefulMood from './SuspensefulMood';
 import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom';
 
+import Admin from './Admin'
+
 export default function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -74,7 +76,7 @@ ReactDOM.render(
       <Route exact path = "/contact" component = {Contact}/>
       <Route exact path = "/test" component = {Test}/>
       <Route exact path = "/terms" component = {Terms}/>
-      <Route exact path = "/admin" component = {Login}/>
+      <Route exact path = "/admin" component = {Admin}/>
       <Route exact path = "/signup" component = {SignUp}/>
       <Route exact path = "/app" component = {App}/>
       <Route exact path = "/forgotpassword" component = {ForgotPassword}/>

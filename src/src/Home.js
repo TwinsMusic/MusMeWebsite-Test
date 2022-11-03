@@ -12,6 +12,35 @@ import song4 from "./featured/04.mp3";
 
 const path = "http://localhost:8080/";
 
+/*var AWS = require("aws-sdk");
+var albumBucketName = 'musme-test-bucket';
+var albumName = 'songs-album';
+
+// Initialize the Amazon Cognito credentials provider
+AWS.config.region = 'us-east-2'; // Region
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+    IdentityPoolId: 'us-east-2:e064c954-2612-4f03-a925-871da4a09a4e',
+});
+
+// Create a new service object
+var s3 = new AWS.S3({
+  apiVersion: '2006-03-01',
+  params: {Bucket: albumBucketName}
+});
+
+var song1Key = albumName + "/08.mp3";
+
+var song1 = s3.listObjects({Bucket: albumBucketName, Key: song1Key}, function(err, data) {
+  if (err) {
+    return alert('There was an error viewing your album: ' + err.message);
+  }
+  else {
+    console.log("Data!")
+    console.log(data);
+    return data;
+  }
+});*/
+
 class Home extends React.Component {
   constructor(props){
     super(props);

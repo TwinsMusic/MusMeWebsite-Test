@@ -6,6 +6,7 @@ import {
 import "./Admin.css";
 
 const path = "http://localhost:8080/";
+//const path = "s3://musme-test-bucket/release"
 
 class Admin extends React.Component {
     constructor(props) {
@@ -403,6 +404,7 @@ class Admin extends React.Component {
     render() {
         return(
             <div class="wrapperDiv">
+
                 <div class="alertWrapper">
                     <div id="addSuccessAlert" className="alert" class="notification is-success">
                     <button class="delete" onClick={this.closeAddSuccessAlert}></button>
