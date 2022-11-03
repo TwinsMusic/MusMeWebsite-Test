@@ -70,6 +70,11 @@ function Header() {
                 Terms of Use
               </Link>
             </div>
+            <div class = "navbar-item">
+              <Link to = "/app"class = "router-link">
+                App
+              </Link>
+            </div>
           </div>
           <div class = "navbar-end">
           <div class = "navbar-item">

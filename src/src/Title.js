@@ -17,6 +17,4 @@ function Title(name, subtitle) {
   return (head);
 }
 
-
-
 export default Title;
