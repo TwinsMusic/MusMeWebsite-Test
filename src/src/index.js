@@ -42,6 +42,7 @@ import { Amplify, API } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
+API.configure(awsconfig);
 
 export default function ScrollToTop() {
   const { pathname } = useLocation();

@@ -16,7 +16,7 @@
       "function": {
         "songsLambda": {
           "deploymentBucketName": "amplify-musmewebsitetest-apicreate-153736-deployment",
-          "s3Key": "amplify-builds/songsLambda-55723543724157584831-build.zip"
+          "s3Key": "amplify-builds/songsLambda-712b566a30594762757a-build.zip"
         }
       },
       "auth": {

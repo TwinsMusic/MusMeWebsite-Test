@@ -1,4 +1,3 @@
-import { API } from "aws-amplify";
 import React from "react";
 import {
     BrowserRouter as Router,
@@ -6,8 +5,14 @@ import {
   } from "react-router-dom";
 import "./Admin.css";
 
+import { Amplify, API } from 'aws-amplify';
+import awsconfig from './aws-exports';
+
+Amplify.configure(awsconfig);
+API.configure('./aws_exports');
+
 const apiName = "musmeAPI";
-const path = "https://dynamodb.us-east-2.amazonaws.com";
+const path = "https://u63lqrycqc.execute-api.us-east-2.amazonaws.com/apicreate";
 
 class Admin extends React.Component {
     constructor(props) {
@@ -56,15 +61,17 @@ class Admin extends React.Component {
         document.getElementById("add").onclick = this.addTrack;
     }
 
+    /*fetch(path + "/songs")
+            .then(res => res.json())
+            .then(data => {
+                */
+
     //Retrieve tracks from the database and render them in the table
     //Dynamically create table based on the number of tracks in the database
     renderTracks() {
-        //fetch(path + "api/tracks/all")
-            //.then(res => res.json())
-            //.then(data => {
         console.log("Rendering Tracks");
-        API.get(apiName, '/songs', {})
-            .then(res => JSON.parse(res))
+        API.get(apiName, path, {})
+            .then((response) => response.json())
             .then(data => {
                 //data[i] is a track object
                 console.log(data);
@@ -169,9 +176,10 @@ class Admin extends React.Component {
 
     //Add a track to the database
     addTrack () {
+        console.log("Adding Track!")
         //close any open alerts
         this.closeAllAlerts();
-        fetch(path + "api/tracks/save", {
+        API.post(apiName, path, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -202,6 +210,8 @@ class Admin extends React.Component {
                 this.emptyTable();
                 this.renderTracks();
             }
+        }).catch(err => {
+            console.log(err);
         });
     }
 

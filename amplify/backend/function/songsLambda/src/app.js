@@ -12,6 +12,7 @@ const AWS = require('aws-sdk')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const bodyParser = require('body-parser')
 const express = require('express')
+const { v4: uuidv4 } = require('uuid')
 
 AWS.config.update({ region: process.env.TABLE_REGION });
 
