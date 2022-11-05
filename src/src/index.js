@@ -1,7 +1,7 @@
 import {React, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Header from './Header';
 import Footer from './Footer';
@@ -18,7 +18,7 @@ import Terms from './Terms';
 import Test from './Test';
 import Login from './Login';
 import SignUp from './SignUp';
-import App from './App';
+import AppB from './AppB';
 import ForgotPassword from "./ForgotPassword";
 import ResetPassword from "./ResetPassword";
 // browse
@@ -84,7 +84,7 @@ ReactDOM.render(
       <Route exact path = "/terms" component = {Terms}/>
       <Route exact path = "/admin" component = {Admin}/>
       <Route exact path = "/signup" component = {SignUp}/>
-      <Route exact path = "/app" component = {App}/>
+      <Route exact path = "/app" component = {AppB}/>
       <Route exact path = "/forgotpassword" component = {ForgotPassword}/>
       <Route exact path = "/resetpassword" component = {ResetPassword}/>
       <Route path='/resetpassword/:token'>
