@@ -9,10 +9,10 @@ import { Amplify, API } from 'aws-amplify';
 import awsconfig from './aws-exports';
 
 Amplify.configure(awsconfig);
-API.configure('./aws_exports');
+API.configure(awsconfig);
 
 const apiName = "musmeAPI";
-const path = "https://u63lqrycqc.execute-api.us-east-2.amazonaws.com/apicreate";
+const path = "/songs";
 
 class Admin extends React.Component {
     constructor(props) {
@@ -61,19 +61,19 @@ class Admin extends React.Component {
         document.getElementById("add").onclick = this.addTrack;
     }
 
-    /*fetch(path + "/songs")
-            .then(res => res.json())
-            .then(data => {
-                */
-
     //Retrieve tracks from the database and render them in the table
     //Dynamically create table based on the number of tracks in the database
     renderTracks() {
         console.log("Rendering Tracks");
         API.get(apiName, path, {})
-            .then((response) => response.json())
+            .then((response) => {
+                console.log("Response")
+                response.json()
+                console.log(response.json())
+            })
             .then(data => {
                 //data[i] is a track object
+                console.log("Data")
                 console.log(data);
                 for(let i = 0; i < data.length; i++) {
                     let body = document.getElementById("tableBody");

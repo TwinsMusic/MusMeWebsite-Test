@@ -44,6 +44,8 @@ import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 API.configure(awsconfig);
 
+const app = require('./node_modules/songslambdafunc');
+
 export default function ScrollToTop() {
   const { pathname } = useLocation();
 
